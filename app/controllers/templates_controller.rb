@@ -1,5 +1,5 @@
 class TemplatesController < ApplicationController
-  # def index
-  #   @templates = Template.all
-  # end
+  def index
+    @templates = Template.all
+  end
 end
