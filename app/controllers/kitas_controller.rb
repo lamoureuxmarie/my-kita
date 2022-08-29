@@ -1,2 +1,0 @@
-class KitasController < ApplicationController
-end

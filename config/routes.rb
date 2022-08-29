@@ -5,5 +5,5 @@ Rails.application.routes.draw do
   resources :templates
   # Defines the root path route ("/")
   # root "articles#index"
-  resources :kitas, only: %i[index show]
+  resources :kinder_gartens, only: %i[index show]
 end
