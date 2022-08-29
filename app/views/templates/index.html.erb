@@ -1,0 +1,8 @@
+<div class="container">
+  <h1>Your templates</h1>
+
+  <% @templates.each do |template| %>
+    <%= template.title %>
+    <%= template.content %>
+  <% end %>
+</div>
