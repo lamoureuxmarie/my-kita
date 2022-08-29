@@ -17,15 +17,15 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_29_123850) do
   create_table "bookmarks", force: :cascade do |t|
     t.string "status"
     t.text "comment"
-    t.bigint "kitas_id", null: false
+    t.bigint "kinder_gartens_id", null: false
     t.bigint "users_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["kitas_id"], name: "index_bookmarks_on_kitas_id"
+    t.index ["kinder_gartens_id"], name: "index_bookmarks_on_kinder_gartens_id"
     t.index ["users_id"], name: "index_bookmarks_on_users_id"
   end
 
-  create_table "kitas", force: :cascade do |t|
+  create_table "kinder_gartens", force: :cascade do |t|
     t.string "name"
     t.string "address"
     t.float "latitude"
@@ -37,18 +37,18 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_29_123850) do
     t.integer "total_places"
     t.integer "places_over_3"
     t.integer "places_under_3"
-    t.bigint "opening_hour_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["opening_hour_id"], name: "index_kitas_on_opening_hour_id"
   end
 
   create_table "opening_hours", force: :cascade do |t|
     t.string "day"
     t.string "opening_time"
     t.string "closing_time"
+    t.bigint "kinder_gartens_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["kinder_gartens_id"], name: "index_opening_hours_on_kinder_gartens_id"
   end
 
   create_table "profiles", force: :cascade do |t|
@@ -89,8 +89,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_29_123850) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "bookmarks", "kitas", column: "kitas_id"
+  add_foreign_key "bookmarks", "kinder_gartens", column: "kinder_gartens_id"
   add_foreign_key "bookmarks", "users", column: "users_id"
-  add_foreign_key "kitas", "opening_hours"
+  add_foreign_key "opening_hours", "kinder_gartens", column: "kinder_gartens_id"
   add_foreign_key "reminders", "bookmarks"
 end

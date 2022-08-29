@@ -1,0 +1,7 @@
+<h1>Kitas</h1>
+  <% @kinder_gartens.each do |k|%>
+  <ul>
+    <li><strong><%= k.name %></strong></li>
+    <li><%= k.address %></li>
+  </ul>
+  <% end %>

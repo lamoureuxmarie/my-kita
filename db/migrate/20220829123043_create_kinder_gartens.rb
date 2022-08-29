@@ -1,6 +1,6 @@
-class CreateKitas < ActiveRecord::Migration[7.0]
+class CreateKinderGartens < ActiveRecord::Migration[7.0]
   def change
-    create_table :kitas do |t|
+    create_table :kinder_gartens do |t|
       t.string :name
       t.string :address
       t.float :latitude
@@ -12,7 +12,6 @@ class CreateKitas < ActiveRecord::Migration[7.0]
       t.integer :total_places
       t.integer :places_over_3
       t.integer :places_under_3
-      t.references :opening_hour, null: false, foreign_key: true
 
       t.timestamps
     end

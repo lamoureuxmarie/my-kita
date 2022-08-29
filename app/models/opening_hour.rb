@@ -1,3 +1,3 @@
 class OpeningHour < ApplicationRecord
-  belongs_to :kita
+  belongs_to :kinder_garten
 end
