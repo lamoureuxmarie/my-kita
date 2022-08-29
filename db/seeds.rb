@@ -8,7 +8,7 @@
 
 puts 'Cleaning up database...'
 KinderGarten.destroy_all
-Template.drestroy_all
+Template.destroy_all
 User.destroy_all
 Profile.destroy_all
 puts 'Database cleaned'
