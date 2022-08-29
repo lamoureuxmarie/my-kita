@@ -8,6 +8,10 @@ class TemplatesController < ApplicationController
   def show
   end
 
+  def new
+    @template = Template.new
+  end
+
   def edit
   end
 
