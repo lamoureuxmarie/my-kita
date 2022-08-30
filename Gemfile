@@ -79,5 +79,5 @@ end
 # Devise gem for users credentials
 gem "devise"
 
-# dotenv to hide APIs keys
-gem "dotenv-rails", groups: [:development, :test]
+# Cloudinary gem
+gem "cloudinary"
