@@ -3,8 +3,8 @@ class CreateBookmarks < ActiveRecord::Migration[7.0]
     create_table :bookmarks do |t|
       t.string :status
       t.text :comment
-      t.references :kinder_gartens, null: false, foreign_key: true
-      t.references :users, null: false, foreign_key: true
+      t.references :kinder_garten, null: false, foreign_key: true
+      t.references :user, null: false, foreign_key: true
 
       t.timestamps
     end
