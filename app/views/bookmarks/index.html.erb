@@ -1,0 +1,16 @@
+<div class="container">
+  <h1>Your bookmarks</h1>
+  <br>
+  <% @bookmarks.each do |bookmark| %>
+    <div class="mb-4">
+      <h3><strong><%= bookmark.kinder_garten.name %></strong></h3>
+      <p><%= bookmark.kinder_garten.address %></p>
+      <p><%= bookmark.status %></p>
+      <span class="">
+        <%= link_to bookmark_path(bookmark), data: {turbo_method: :delete, turbo_confirm: "Are you sure you want to DELETE you bookmark?"} do %>
+          <button>Delete</button>
+        <% end %>
+      </span>
+    </div>
+  <% end %>
+</div>

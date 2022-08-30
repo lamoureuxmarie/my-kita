@@ -3,7 +3,10 @@ Rails.application.routes.draw do
   root to: "pages#home"
 
   resources :templates
-  resources :kinder_gartens, only: %i[index show]
+  resources :kinder_gartens, only: %i[index show] do
+    resources :bookmarks, only: %i[new create]
+  end
   resources :profiles, only: %i[show edit update]
+  resources :bookmarks, only: %i[index show edit update destroy]
 
 end
