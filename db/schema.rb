@@ -45,12 +45,12 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_30_105244) do
   create_table "bookmarks", force: :cascade do |t|
     t.string "status"
     t.text "comment"
-    t.bigint "kinder_gartens_id", null: false
-    t.bigint "users_id", null: false
+    t.bigint "kinder_garten_id", null: false
+    t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["kinder_gartens_id"], name: "index_bookmarks_on_kinder_gartens_id"
-    t.index ["users_id"], name: "index_bookmarks_on_users_id"
+    t.index ["kinder_garten_id"], name: "index_bookmarks_on_kinder_garten_id"
+    t.index ["user_id"], name: "index_bookmarks_on_user_id"
   end
 
   create_table "kinder_gartens", force: :cascade do |t|
@@ -121,8 +121,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_30_105244) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "bookmarks", "kinder_gartens", column: "kinder_gartens_id"
-  add_foreign_key "bookmarks", "users", column: "users_id"
+  add_foreign_key "bookmarks", "kinder_gartens"
+  add_foreign_key "bookmarks", "users"
   add_foreign_key "opening_hours", "kinder_gartens", column: "kinder_gartens_id"
   add_foreign_key "profiles", "users"
   add_foreign_key "reminders", "bookmarks"
