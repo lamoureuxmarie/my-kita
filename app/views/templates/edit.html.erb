@@ -1,0 +1,15 @@
+<div class="container padding-top">
+  <div class="d-flex align-items-center flex-column">
+    <div class="card-lend-form col-sm-12 col-lg-6 mb-3" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4))">
+      Update your template
+    </div>
+    <div class="col-sm-12 col-lg-6">
+      <h1 class="text-center">Update your template</h1>
+        <%= simple_form_for(@template) do |f| %>
+          <%= f.input :title%>
+          <%= f.input :content %>
+          <%= f.submit class: 'button secondary-button'%>
+        <% end %>
+    </div>
+  </div>
+</div>
