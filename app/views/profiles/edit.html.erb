@@ -1,0 +1,16 @@
+<div class="container padding-top">
+  <div class="d-flex align-items-center flex-column">
+    <div class="col-sm-12 col-lg-6">
+      <%= cl_image_tag @profile.photo.key, height: 300, width: 400, crop: :fill %>
+    </div>
+    <div class="col-sm-12 col-lg-6">
+      <h1 class="text-center">Your profile</h1>
+        <%= simple_form_for(@profile) do |f| %>
+          <%= f.input :first_name %>
+          <%= f.input :last_name %>
+          <%= f.input :photo, as: :file %>
+          <%= f.submit class: 'button secondary-button'%>
+        <% end %>
+    </div>
+  </div>
+</div>
