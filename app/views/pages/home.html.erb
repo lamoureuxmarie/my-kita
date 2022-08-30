@@ -1,2 +1,14 @@
-<h1>My Kita</h1>
-<h2>Hunt smarter, be happier</h2>
+<div class="container">
+  <h1>My Kita</h1>
+  <h2>Hunt smarter, be happier</h2>
+  <div class="form-container">
+    <%= form_with url: kinder_gartens_path, method: :get do |f| %>
+      <%= text_field_tag :query, params[:query], class: "form-control",
+          placeholder: "Address" %>
+      <small><%= link_to "Reset search", kinder_gartens_path %></small>
+      <%= submit_tag "Search", class: "button primary-button" %>
+      <%= f.select :five, [[@kitas.,1],['Français',2]] %>
+      <%= f.select :five, [['Option 1',1],['Option 2',2]] %>
+    <% end %>
+  </div>
+</div>
