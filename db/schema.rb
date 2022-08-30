@@ -67,6 +67,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_30_142429) do
     t.integer "places_under_3"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "website"
   end
 
   create_table "opening_hours", force: :cascade do |t|
