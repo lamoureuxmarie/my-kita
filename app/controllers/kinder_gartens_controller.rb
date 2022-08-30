@@ -1,6 +1,11 @@
 class KinderGartensController < ApplicationController
   def index
-    @kinder_gartens = KinderGarten.all
+    if params[:query].present?
+      sql_query = "address ILIKE :query"
+      @kinder_gartens = KinderGarten.where(sql_query, query: "%#{params[:query]}%")
+    else
+      @kinder_gartens = KinderGarten.all
+    end
   end
 
   def show

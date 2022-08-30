@@ -3,17 +3,26 @@
   <div class="form-container">
     <%= form_with url: kinder_gartens_path, method: :get do |f| %>
       <div class="row">
-        <div class="col-8">
+        <div class="col-7">
           <%= text_field_tag :query, params[:query], class: "form-control",
               placeholder: "Address" %>
         </div>
-        <div class="col-4">
+        <div class="col-2">
+          <%= f.select :distance, [['2km', 1], ['5km', 2], ['10km', 3]], {}, {class: "distance"} %>
+        </div>
+        <div class="col-3">
           <%= submit_tag "Search", class: "button primary-button" %>
-          <small><%= link_to "Reset search", kinder_gartens_path %></small>
+          <!-- <small><%= link_to "Reset search", kinder_gartens_path %></small> -->
         </div>
       </div>
-      <%= f.select :pedagogical_focus, [['Montessori', 1], ['Bilingual', 2], ['Nature', 3], ['Situational Approach', 4]] %>
-      <%= f.select :thematic_focus, [['Intercultural pedagogy', 1],['Music and art', 2], ['Integration of children with disabilities', 3], ['Body and movement', 4]] %>
+      <div class="row">
+        <div class="col-6">
+          <%= f.select :pedagogical_focus, [['Montessori', 1], ['Bilingual', 2], ['Nature', 3], ['Situational Approach', 4]] %>
+        </div>
+        <div class="col-6">
+          <%= f.select :thematic_focus, [['Intercultural pedagogy', 1],['Music and art', 2], ['Integration of children with disabilities', 3], ['Body and movement', 4]] %>
+        </div>
+      </div>
     <% end %>
   </div>
 

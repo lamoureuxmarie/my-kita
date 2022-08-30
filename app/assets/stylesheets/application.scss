@@ -10,4 +10,10 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
-@import "components/search"
+@import "components/search";
+
+body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
