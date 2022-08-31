@@ -1,11 +1,12 @@
 class KinderGartensController < ApplicationController
-  def display_markers
-    @markers = @kinder_gartens.geocoded.map do |k|
+  def display_markers(kinder_gartens)
+    @markers = kinder_gartens.geocoded.map do |k|
       {
         lat: k.latitude,
         lng: k.longitude
       }
     end
+    return @markers
   end
 
   def index
@@ -16,7 +17,13 @@ class KinderGartensController < ApplicationController
     else
       @kinder_gartens = KinderGarten.all
     end
-    display_markers
+    # @markers = display_markers(@kinder_garte
+    @markers = @kinder_gartens.geocoded.map do |k|
+      {
+        lat: k.latitude,
+        lng: k.longitude
+      }
+    end
   end
 
   def show
