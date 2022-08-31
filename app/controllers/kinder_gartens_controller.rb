@@ -3,10 +3,10 @@ class KinderGartensController < ApplicationController
     @markers = kinder_gartens.geocoded.map do |k|
       {
         lat: k.latitude,
-        lng: k.longitude
+        lng: k.longitude,
+        image_url: helpers.asset_url("sun.png")
       }
     end
-    return @markers
   end
 
   def index
@@ -17,13 +17,7 @@ class KinderGartensController < ApplicationController
     else
       @kinder_gartens = KinderGarten.all
     end
-    # @markers = display_markers(@kinder_garte
-    @markers = @kinder_gartens.geocoded.map do |k|
-      {
-        lat: k.latitude,
-        lng: k.longitude
-      }
-    end
+    @markers = display_markers(@kinder_gartens)
   end
 
   def show
