@@ -1,0 +1,6 @@
+<%= simple_form_for [bookmark, reminder] do |f| %>
+  <%= f.input :title %>
+  <%= f.input :content %>
+  <%= f.input :due_date, as: :string, input_html: {class: "datepicker"} %>
+  <%= f.submit class: 'button secondary-button' %>
+<% end %>
