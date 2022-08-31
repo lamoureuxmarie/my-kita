@@ -4,7 +4,7 @@ class KinderGartensController < ApplicationController
       {
         lat: k.latitude,
         lng: k.longitude,
-        image_url: helpers.asset_url("sun.png")
+        image_url: helpers.asset_url("marker.png")
       }
     end
   end
