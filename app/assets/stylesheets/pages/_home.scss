@@ -1,7 +1,16 @@
 // Specific CSS for your home-page
-.container {
+.homepage {
   height: 100vh;
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
+}
+
+.homepage h1 {
+  position: absolute;
+  font-size: 38px;
+  color: #fff;
+  font-weight: 700;
+  bottom: 35px;
+  left: 45px;
 }

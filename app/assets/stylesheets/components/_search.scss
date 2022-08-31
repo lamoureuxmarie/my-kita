@@ -9,6 +9,10 @@
   margin: 0 auto;
 }
 
+.form-container .form-control {
+  background-color: #fff;
+}
+
 .form-container input,
 .form-container select {
   border-radius: 5px;
@@ -22,6 +26,14 @@
   width: 135px;
 }
 
-.distance {
+.form-container .distance {
   width: 50px !important;
+  position: relative;
+  bottom: 12px;
+  right: 18px;
+}
+
+.form-container .search {
+  position: relative;
+  right: 15px;
 }
