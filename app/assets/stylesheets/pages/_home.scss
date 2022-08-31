@@ -1,16 +1,24 @@
 // Specific CSS for your home-page
 .homepage {
   height: 100vh;
+  width: 100vw;
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
 }
 
 .homepage h1 {
-  position: absolute;
-  font-size: 38px;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  font-size: 36px;
   color: #fff;
   font-weight: 700;
-  bottom: 35px;
-  left: 45px;
+  position: absolute;
+  top: 75px;
+  left: 40px;
+}
+
+@media only screen and (min-width: 768px) {
+  .homepage h1 {
+    font-size: 42px;
+  }
 }

@@ -12,6 +12,11 @@
 @import "components/index";
 @import "pages/index";
 @import "components/search";
+@import "components/buttons";
+
+html {
+  height: 100%;
+}
 
 body {
   margin: 0;
