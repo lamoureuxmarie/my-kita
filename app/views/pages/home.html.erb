@@ -1,6 +1,6 @@
-<div class="homepage" style="background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.3)), url(<%= asset_path 'bg-img.jpg' %>)">
+<div class="container homepage" style="background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.3)), url(<%= asset_path 'bg-img.jpg' %>)">
 
-  <h1 >
+  <h1>
     Search smarter,
     <br>
     be happier
@@ -9,17 +9,13 @@
   <div class="form-container">
     <%= form_with url: kinder_gartens_path, method: :get do |f| %>
       <div class="row">
-        <div class="col-7">
+        <div class="col-12 d-flex search-container">
           <%= text_field_tag :query, params[:query], class: "form-control",
               placeholder: "Address" %>
+          <%= submit_tag "Search", class: "button btn-primary search" %>
         </div>
-        <div class="col-2 ">
-          <%= f.select :distance, [['2km', 1], ['5km', 2], ['10km', 3]], {}, {class: "distance"} %>
-        </div>
-        <div class="col-3">
-          <%= submit_tag "Search", class: "search button primary-button" %>
+          <!-- <%= f.select :distance, [['2km', 1], ['5km', 2], ['10km', 3]], {}, {class: "distance"} %> -->
           <!-- <small><%= link_to "Reset search", kinder_gartens_path %></small> -->
-        </div>
       </div>
       <div class="row filters d-none">
         <div class="col-6">
