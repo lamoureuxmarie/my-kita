@@ -1,7 +1,16 @@
-<h1>Kitas</h1>
-  <% @kinder_gartens.each do |k|%>
+<%= link_to root_path do %>
+  <h1>my kita</h1>
+<% end %>
+
+  <div style="width: 100%; height: 600px;"
+  data-controller="map"
+  data-map-markers-value="<%= @markers.to_json %>"
+  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+  </div>
+
+<% @kinder_gartens.each do |k|%>
   <ul>
     <li><strong><%= k.name %></strong></li>
     <li><%= k.address %></li>
   </ul>
-  <% end %>
+<% end %>
