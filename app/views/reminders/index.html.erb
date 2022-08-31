@@ -1,0 +1,19 @@
+<div class="container">
+  <% @reminders.each do |r| %>
+    <div>
+      <h2><%= r.title %></h2>
+      <p><%= r.content %></p>
+      <p><%= r.due_date %></p>
+      <div class="d-flex">
+        <span>
+          <%= link_to reminder_path(r), data: {turbo_method: :delete, turbo_confirm: "Are you sure you want to DELETE you booking?"} do %>
+            <i class="fa-solid fa-trash" id="trash-can"></i>
+          <% end %>
+        </span>
+        <span>
+          <%= link_to "Edit", edit_reminder_path(r)%>
+        </span>
+      </div>
+    </div>
+  <% end %>
+</div>

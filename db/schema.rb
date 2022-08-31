@@ -92,7 +92,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_30_142429) do
   create_table "reminders", force: :cascade do |t|
     t.string "title"
     t.string "content"
-    t.datetime "due_date"
+    t.date "due_date"
     t.bigint "bookmark_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
