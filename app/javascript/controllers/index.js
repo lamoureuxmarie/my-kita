@@ -4,6 +4,10 @@
 
 import { application } from "./application"
 
+
+import AlertController from "./alert_controller"
+application.register("alert", AlertController)
+
 import FlatpickrController from "./flatpickr_controller"
 application.register("flatpickr", FlatpickrController)
 
@@ -15,3 +19,4 @@ application.register("map", MapController)
 
 import MarkersController from "./markers_controller"
 application.register("markers", MarkersController)
+
