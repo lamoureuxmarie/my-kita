@@ -4,4 +4,6 @@
 <p><%= @kinder_garten.email %></p>
 <p><%= @kinder_garten.phone_number %></p>
 
-<%= link_to "Add to list", kinder_garten_bookmarks_path(@kinder_garten) ,data: { turbo_method: :post } %>
+<div data-controller="alert">
+  <%= link_to "Add to list", kinder_garten_bookmarks_path(@kinder_garten) ,data: { turbo_method: :post, action: 'click->alert#showAlert' } %>
+</div>

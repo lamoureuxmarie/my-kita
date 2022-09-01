@@ -17,11 +17,7 @@ class BookmarksController < ApplicationController
     @bookmark.user = User.last
     @kinder_garten = KinderGarten.find(params[:kinder_garten_id])
     @bookmark.kinder_garten = @kinder_garten
-    if @bookmark.save
-      redirect_to bookmarks_path, status: :see_other, notice: "Added successfully"
-    else
-      render :new, notice: "Oops. Something went wrong...", status: :unprocessable_entity
-    end
+    @bookmark.save
   end
 
   def edit
