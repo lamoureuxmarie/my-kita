@@ -4,4 +4,4 @@
 <p><%= @kinder_garten.email %></p>
 <p><%= @kinder_garten.phone_number %></p>
 
-<%= link_to "Creat bookmark", new_kinder_garten_bookmark_path(@kinder_garten) %>
+<%= link_to "Add to list", kinder_garten_bookmarks_path(@kinder_garten) ,data: { turbo_method: :post } %>
