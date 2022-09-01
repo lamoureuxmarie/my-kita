@@ -6,3 +6,22 @@
   width: 100%;
   height: 100%;
 }
+
+.mapboxgl-ctrl-bottom-left,
+.mapboxgl-ctrl-bottom-right {
+  display: none;
+}
+
+.mapboxgl-popup {
+  max-width: 240px;
+  transform: translate(0px, -50%) translate(70px, 273px);
+}
+
+.mapboxgl-popup-tip {
+  display: none;
+}
+
+.mapboxgl-popup-content {
+  padding: 0 !important;
+  border-radius: 10px !important;
+}
