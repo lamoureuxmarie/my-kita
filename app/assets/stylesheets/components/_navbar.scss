@@ -1,12 +1,86 @@
-.navbar-lewagon {
+////////////// transparent navbar
+
+.navbar-transparent {
   justify-content: space-between;
-  background: white;
+  background-color: transparent;
 }
 
-.navbar-lewagon .navbar-collapse {
+.navbar-transparent .navbar-collapse {
+  // flex-grow: 0;
+  background-color: #FFFEFB;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  // height: 50%;
+  margin: 0;
+  transition: all 0.5s ease
+}
+
+.navbar-transparent .navbar-brand img {
+  width: 100px;
+  margin-left: 15px;
+}
+
+////////////// Normal navbar
+
+.navbar-normal {
+  justify-content: space-between;
+  background-color: #FFFEFB;
+}
+
+.navbar-normal .navbar-collapse {
   flex-grow: 0;
+  background-color: #FFFEFB;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  margin: 0;
+  transition: all 0.5s ease
 }
 
-.navbar-lewagon .navbar-brand img {
-  width: 40px;
+.navbar-normal .navbar-brand img {
+  width: 100px;
+  margin-left: 15px;
+}
+
+////////////// General settings
+
+.navbar-toggler {
+  border: none;
+}
+
+.me-auto {
+  text-align: center;
+  margin: 50px 0 50px 0;
+}
+
+.nav-item {
+  margin: 10px 0 10px 0;
+  font-weight: 700;
+  font-size: 20px;
+  text-decoration: none;
+  color: #181818;
+}
+
+.nav-item:hover {
+  background-color: #F5F1E9;
+}
+
+.nav-item .nav-link {
+  color: #181818;
+}
+
+.menudiv {
+  position: absolute;
+  right: 0px;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+
+.line {
+  color: #C6C6C6;
+  position: absolute;
+  right: 175px;
+  top: -5px;
+  font-weight: 900;
 }
