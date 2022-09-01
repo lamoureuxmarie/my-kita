@@ -4,3 +4,35 @@
   right: 16px;
   z-index: 1000;
 }
+
+.swal2-popup {
+  background: linear-gradient(145deg, rgba(1,0,26,0.5) 0%, rgba(1,0,26,0.6) 100%) !important;
+  color: #fff !important;
+}
+
+.swal2-confirm,
+.swal2-deny {
+  color: #01001A !important;
+  font-weight: 700 !important;
+  font-size: 16px !important;
+  border-radius: 100px !important;
+}
+
+.swal2-confirm {
+  background-color: #FFE23F !important;
+  border: 1px solid #FFE23F !important;
+}
+
+.swal2-deny {
+  background-color: #F5F1E9 !important;
+  border: 1px solid #F5F1E9 !important;
+}
+
+.swal2-confirm:hover {
+  background-color: #fee760 !important;
+  border: 1px solid #fee760 !important;
+}
+
+.swal2-backdrop-show {
+  background: none !important;
+}
