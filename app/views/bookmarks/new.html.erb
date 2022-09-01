@@ -3,7 +3,6 @@
     <div class="col-sm-12 col-lg-6">
       <h1 class="text-center">Your new Bookmark</h1>
         <%= simple_form_for [@kinder_garten, @bookmark] do |f| %>
-        <% raise %>
           <%= f.input :status %>
           <%= f.input :comment %>
           <%= f.submit class: 'button secondary-button'%>

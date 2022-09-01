@@ -13,9 +13,23 @@
 @import "pages/index";
 @import "components/search";
 @import "components/navbar";
+@import "components/buttons";
+@import "components/map";
+@import "components/cards_index";
+@import "components/card_preview";
+
+html {
+  height: 100%;
+}
 
 body {
   margin: 0;
   padding: 0;
-  overflow: hidden;
+  background-color: #FFFEFB;
+  color: #01001A;
+}
+
+a {
+  text-decoration: inherit;
+  color: inherit;
 }

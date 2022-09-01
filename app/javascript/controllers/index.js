@@ -4,8 +4,19 @@
 
 import { application } from "./application"
 
-import HelloController from "./hello_controller"
-application.register("hello", HelloController)
+
+import AlertController from "./alert_controller"
+application.register("alert", AlertController)
 
 import FlatpickrController from "./flatpickr_controller"
 application.register("flatpickr", FlatpickrController)
+
+import HelloController from "./hello_controller"
+application.register("hello", HelloController)
+
+import MapController from "./map_controller"
+application.register("map", MapController)
+
+import MarkersController from "./markers_controller"
+application.register("markers", MarkersController)
+

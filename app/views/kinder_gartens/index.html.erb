@@ -1,7 +1,26 @@
-<h1>Kitas</h1>
-  <% @kinder_gartens.each do |k|%>
-  <ul>
-    <li><strong><%= k.name %></strong></li>
-    <li><%= k.address %></li>
-  </ul>
-  <% end %>
+<%= link_to root_path do %>
+  <h1>my kita</h1>
+<% end %>
+
+
+<div style="width: 100%; height: 600px;"
+      data-controller="map"
+      data-map-markers-value="<%= @markers.to_json %>"
+      data-map-api-key-value="<%= ENV['MAPBOX_API_KEY']%>"
+      class="map">
+</div>
+
+
+<div class="cards-container d-flex flex-wrap">
+
+<% @kinder_gartens.each do |k|%>
+  <div class="index-card card mb-4" style="width: 20rem;">
+    <img class="card-img-top" src="<%= k.image_url %>" alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title"><%= k.name %></h5>
+        <p class="card-text"><%= k.address %></p>
+      </div>
+  </div>
+<% end %>
+
+</div>

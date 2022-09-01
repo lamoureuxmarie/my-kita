@@ -1,2 +1,20 @@
 // Import page-specific CSS files here.
 @import "home";
+
+.cards-container {
+  z-index: 1;
+  padding: 55px 25px;
+  background-color: #FFFEFB;
+  border-radius: 20px 20px 0 0;
+  position: relative;
+  top: -30px;
+}
+
+.cards-container h5 {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.cards-container p {
+  font-size: 16px;
+}

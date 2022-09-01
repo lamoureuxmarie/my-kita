@@ -1,0 +1,40 @@
+.card-preview {
+  z-index: 1;
+  height: 120px;
+  width: 300px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+}
+
+.card-preview img {
+  height: 100%;
+  width: 120px;
+  object-fit: cover;
+  border-radius: 10px 0 0 10px;
+}
+
+.card-preview h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.card-preview p {
+  font-size: 14px;
+  line-height: 1.4;
+  opacity: .7;
+  margin-bottom: 0;
+  margin-top: 8px;
+}
+
+.card-preview .card-preview-infos {
+  padding: 10px;
+}
+
+.card-preview a {
+  text-decoration: none;
+  color: #01001A;
+}

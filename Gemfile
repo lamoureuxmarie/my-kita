@@ -81,3 +81,6 @@ gem "devise"
 
 # Cloudinary gem
 gem "cloudinary"
+
+# Geocoding
+gem "geocoder"
