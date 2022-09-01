@@ -15,6 +15,7 @@
 @import "components/buttons";
 @import "components/map";
 @import "components/cards_index";
+@import "components/card_preview";
 
 html {
   height: 100%;
@@ -25,4 +26,9 @@ body {
   padding: 0;
   background-color: #FFFEFB;
   color: #01001A;
+}
+
+a {
+  text-decoration: inherit;
+  color: inherit;
 }
