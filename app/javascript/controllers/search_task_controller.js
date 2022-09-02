@@ -1,14 +1,14 @@
 import { Controller } from "@hotwired/stimulus"
 
-// Connects to data-controller="bookmark"
+// Connects to data-controller="search-task"
 export default class extends Controller {
-  static targets = ["content"]
+  static targets = ["input"]
 
   connect() {
     console.log(this.contentTarget)
   }
 
-  showContent() {
-    this.contentTarget.classList.toggle("d-none")
+  showSearch() {
+    this.inputTarget.classList.toggle("d-none")
   }
 }
