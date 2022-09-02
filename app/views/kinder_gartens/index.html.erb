@@ -10,13 +10,15 @@
 <div class="cards-container d-flex flex-wrap">
 
 <% @kinder_gartens.each do |k|%>
-  <div class="index-card card mb-4" style="width: 350px;">
-    <img class="card-img-top" src="<%= k.image_url %>" alt="Card image cap">
-      <div class="card-body">
-        <h5 class="card-title"><%= k.name %></h5>
-        <p class="card-text"><%= k.address %></p>
-      </div>
-  </div>
+  <%= link_to kinder_garten_path(k) do %>
+    <div class="index-card card mb-4" style="width: 20rem;">
+      <img class="card-img-top" src="<%= k.image_url %>" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title"><%= k.name %></h5>
+          <p class="card-text"><%= k.address %></p>
+        </div>
+    </div>
+  <% end %>
 <% end %>
 
 </div>
