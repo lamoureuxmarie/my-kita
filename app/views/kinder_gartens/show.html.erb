@@ -1,27 +1,30 @@
 <div>
   <div>
-
+    <img src="<%= @kinder_garten.image_url %>" alt="Kita's picture" class="kita-image">
   </div>
-  <div class="container p-5">
+  <div class="container px-5">
     <h1><%= @kinder_garten.name %></h1>
-    <div class="lh-1">
+    <div class="descriptions">
       <p><%= @kinder_garten.address %></p>
       <p><%= @kinder_garten.email %></p>
       <p><%= @kinder_garten.phone_number %></p>
     </div>
     <br>
     <div>
-    <h6>Opening hours</h6>
-    <p><%=  %></p>
-    <p><%=  %></p>
-    <p><%=  %></p>
-    <p><%=  %></p>
-    <p><%=  %></p>
-    <p><%=  %></p>
+      <h6>Opening hours</h6>
+      <p><%= @kinder_garten.opening_time %> - <%= @kinder_garten.closing_time %></p>
     </div>
-
-    <div data-controller="alert">
-      <%= link_to "Add to list", kinder_garten_bookmarks_path(@kinder_garten) ,data: { turbo_method: :post, action: 'click->alert#showAlert' } %>
+    <div>
+      <h6>Pedagogical focus</h6>
+      <p><%= @kinder_garten.pedagogical_focus %></p>
+    </div>
+    <div>
+      <h6>Thematic focus</h6>
+      <p><%= @kinder_garten.thematic_focus %></p>
+    </div>
+    <br>
+    <div class="add-to-list-button" data-controller="alert">
+      <%= link_to "Add to list", kinder_garten_bookmarks_path(@kinder_garten), data: { turbo_method: :post, action: 'click->alert#showAlert' } %>
     </div>
   </div>
 </div>
