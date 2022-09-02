@@ -2,7 +2,12 @@ class BookmarksController < ApplicationController
   before_action :find_bookmark, only: %i[show edit update destroy]
 
   def index
-    @bookmarks = Bookmark.all
+    if params[:query].present?
+        sql_query = "name ILIKE :query OR comment ILIKE :query"
+        @bookmarks = Bookmark.where(sql_query, query: "%#{params[:query]}%")
+    else
+        @bookmarks = Bookmark.all
+    end
   end
 
   def show

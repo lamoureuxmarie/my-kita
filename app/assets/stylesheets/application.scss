@@ -30,7 +30,9 @@ body {
   color: #01001A;
 }
 
-a {
+a,
+a:hover,
+a:active {
   text-decoration: inherit;
   color: inherit;
 }

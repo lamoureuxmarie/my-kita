@@ -1,22 +1,33 @@
-<div class="container">
-  <div class="filters">
-    <small><i class="fa-solid fa-filter"></i> Search by</small>
-  </div>
+<div class="container pt-3">
   <% @bookmarks.each do |bookmark| %>
 
-    <div class="mb-2 bookmark-card">
-      <h6>
-        <i class="fa-regular fa-message"></i>
-        <%= bookmark.kinder_garten.name %>
-      </h6>
-        <p><%= bookmark.kinder_garten.address %></p>
-
-      <div class="bookmark-show d-none">
-        <%= link_to bookmark_path(bookmark), data: {turbo_method: :delete, turbo_confirm: "Are you sure you want to DELETE you bookmark?"} do %>
-          <button>Delete</button>
+    <div class="bookmark-card">
+      <div class="d-flex delete justify-content-end">
+        <%= link_to bookmark_path(bookmark), data: {turbo_method: :delete, turbo_confirm: "Are you sure you want to DELETE this task?"} do %>
+            <i class="fa-solid fa-xmark"></i>
         <% end %>
+      </div>
+      <div class="infos">
+        <h6><%= bookmark.kinder_garten.name %></h6>
+        <p><%= bookmark.kinder_garten.address %></p>
+      </div>
+
+      <div class="bookmark-show">
       </div>
     </div>
 
   <% end %>
+
+  <div class="search-container d-flex">
+    <div class="input">
+      <%= form_with url: bookmarks_path, method: :get do |f| %>
+        <%= text_field_tag :query, params[:query],
+                           class: "form-control",
+                           placeholder: "Find a task" %>
+      <% end %>
+    </div>
+    <div class="icon">
+      <i class="fa-solid fa-magnifying-glass"></i>
+    </div>
+  </div>
 </div>
