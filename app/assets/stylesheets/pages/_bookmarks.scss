@@ -1,13 +1,13 @@
 @import "components/bookmark_card";
 
-.search-container {
+.bm-search-container {
   z-index: 99;
   position: fixed;
   bottom: 15px;
   right: 50px;
 }
 
-.search-container .fa-magnifying-glass {
+.bm-search-container .fa-magnifying-glass {
   padding: 15px;
   font-size: 24px;
   background-color:#FFE23F;
