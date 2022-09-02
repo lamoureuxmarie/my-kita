@@ -26,6 +26,8 @@ CSV.foreach(filepath, headers: :first_row) do |row|
                       thematic_focus: row['thematic_focus'],
                       total_places: row['total_places'],
                       places_under_3: row['places_under_3'],
+                      opening_time: row['opening_time'],
+                      closing_time: row['closing_time'],
                       image_url: row['image_url'])
 
   puts "#{row['name']} created"
