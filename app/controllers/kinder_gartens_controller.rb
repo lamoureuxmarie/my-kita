@@ -23,5 +23,6 @@ class KinderGartensController < ApplicationController
 
   def show
     @kinder_garten = KinderGarten.find(params[:id])
+    # @kinder_garten.pedagogical_focus.join(",")
   end
 end

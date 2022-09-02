@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_08_31_091209) do
+ActiveRecord::Schema[7.0].define(version: 2022_09_02_093654) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -69,16 +69,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_31_091209) do
     t.datetime "updated_at", null: false
     t.string "website"
     t.string "image_url"
-  end
-
-  create_table "opening_hours", force: :cascade do |t|
-    t.string "day"
     t.string "opening_time"
     t.string "closing_time"
-    t.bigint "kinder_gartens_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["kinder_gartens_id"], name: "index_opening_hours_on_kinder_gartens_id"
   end
 
   create_table "profiles", force: :cascade do |t|
@@ -123,7 +115,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_31_091209) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "bookmarks", "kinder_gartens"
   add_foreign_key "bookmarks", "users"
-  add_foreign_key "opening_hours", "kinder_gartens", column: "kinder_gartens_id"
   add_foreign_key "profiles", "users"
   add_foreign_key "reminders", "bookmarks"
 end
