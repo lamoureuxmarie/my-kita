@@ -47,8 +47,8 @@
 
   <% end %>
 
-  <div class="bm-search-container d-flex">
-    <div class="input d-none">
+  <div class="bm-search-container d-flex" data-controller="search-task">
+    <div class="input d-none" data-search-task-target="input">
       <%= form_with url: bookmarks_path, method: :get do |f| %>
         <%= text_field_tag :query, params[:query],
                            class: "form-control",
@@ -56,7 +56,7 @@
       <% end %>
     </div>
     <div class="icon">
-      <i class="fa-solid fa-magnifying-glass"></i>
+      <i class="fa-solid fa-magnifying-glass" data-action="click->search-task#showSearch"></i>
     </div>
   </div>
 </div>

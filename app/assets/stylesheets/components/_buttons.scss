@@ -5,6 +5,7 @@
   text-align: center;
   border-radius: 100px;
   height: 42px;
+  transition: background-color 0.25s ease-in-out;
 }
 
 .btn-primary {
@@ -13,7 +14,7 @@
 }
 
 .btn-primary:hover {
-  background-color: #fbda1f;
+  background-color:#fde768;
   border: 1px solid #fbda1f !important;
 }
 
