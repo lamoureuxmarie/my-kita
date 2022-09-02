@@ -18,7 +18,7 @@
 
   <% end %>
 
-  <div class="search-container d-flex">
+  <div class="bm-search-container d-flex">
     <div class="input d-none">
       <%= form_with url: bookmarks_path, method: :get do |f| %>
         <%= text_field_tag :query, params[:query],
