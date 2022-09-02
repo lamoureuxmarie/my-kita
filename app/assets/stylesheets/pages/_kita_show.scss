@@ -6,10 +6,10 @@
   font-size: 16px;
   text-align: center;
   border-radius: 100px;
-  width: 76%;
+  width: 100%;
   height: 42px;
-  position: fixed;
-  top: 765px;
+  position: absolute;
+  bottom: 40px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -23,4 +23,16 @@
 
 .descriptions {
   line-height: 50%;
+}
+
+.empty-div {
+  height: 100px;
+}
+
+.white-div {
+  background: white;
+  position: fixed;
+  bottom: 0px;
+  width: 76%;
+  height: 115px;
 }
