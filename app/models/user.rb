@@ -4,14 +4,14 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   has_many :bookmarks
-  has_many :profiles
+  has_one :profile
   after_create :create_profile
 
   def create_profile
     Profile.create!(user: self)
   end
 
-  def profile
-    profiles.first
-  end
+  # def profile
+  #   profiles.first
+  # end
 end
