@@ -19,7 +19,7 @@ class BookmarksController < ApplicationController
 
   def create
     @bookmark = Bookmark.new
-    @bookmark.user = User.last
+    @bookmark.user = current_user
     @kinder_garten = KinderGarten.find(params[:kinder_garten_id])
     @bookmark.kinder_garten = @kinder_garten
     @bookmark.save
