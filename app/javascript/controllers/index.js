@@ -4,9 +4,11 @@
 
 import { application } from "./application"
 
-
 import AlertController from "./alert_controller"
 application.register("alert", AlertController)
+
+import BookmarkController from "./bookmark_controller"
+application.register("bookmark", BookmarkController)
 
 import FlatpickrController from "./flatpickr_controller"
 application.register("flatpickr", FlatpickrController)
