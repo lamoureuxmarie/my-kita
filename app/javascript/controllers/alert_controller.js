@@ -17,7 +17,7 @@ export default class extends Controller {
       title: 'Added Successfully!',
       showConfirmButton: true,
       showDenyButton: true,
-      confirmButtonText: '<a href="http://www.my-kita.xyz/bookmarks">See list</a>',
+      confirmButtonText: '<a href="http://localhost:3000/bookmarks">See list</a>',
       confirmButtonColor: '#FFE23F',
       denyButtonText: 'Go Back',
       denyButtonColor: '#F5F1E9'

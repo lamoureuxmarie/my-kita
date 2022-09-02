@@ -14,10 +14,12 @@ kita = KinderGarten.create(name: 'casa dei bambini', address: 'Grabensprung 51, 
 puts "#{kita.name} created"
 puts "Parsing csv file..."
 
-filepath = "db/kitas.csv"
+# filepath = "db/kitas.csv"
+filepath = "db/small-kitas.csv" # For smaller seeds tests
+
 
 CSV.foreach(filepath, headers: :first_row) do |row|
-  KinderGarten.create(name: row['name'],
+  new_kita = KinderGarten.new(name: row['name'],
                       address: "#{row['street']}, #{row['house_number']}, #{row['zip']} #{row['city']}",
                       email: row['email'],
                       phone_number: row['phone_number'],
@@ -30,7 +32,9 @@ CSV.foreach(filepath, headers: :first_row) do |row|
                       closing_time: row['closing_time'],
                       image_url: row['image_url'])
 
-  puts "#{row['name']} created"
+    new_kita.suburb = Geocoder.search(new_kita.address).first.data["address"]["suburb"]
+    new_kita.save
+  puts "#{new_kita.name}, located at #{new_kita.suburb} was created"
 end
 # KinderGarten.create(name: 'Erlebniswelt', address: 'Sewanstr. 197 -199, 10319, Friedrichsfelde', email: 'erlebniswelt@mykita.de', phone_number: '+491794811825', pedagogical_focus: 'Nature')
 # KinderGarten.create(name: 'Mosaik', address: 'Donaustr. 88, 12043, Neukölln', email: 'mosaik@mykita.de', phone_number: '+491794811825', pedagogical_focus: 'Situational Approach')
