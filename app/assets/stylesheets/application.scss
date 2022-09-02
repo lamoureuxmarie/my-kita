@@ -11,6 +11,7 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+@import "pages/bookmarks";
 @import "components/search";
 @import "components/navbar";
 @import "components/buttons";
@@ -30,7 +31,9 @@ body {
   color: #01001A;
 }
 
-a {
+a,
+a:hover,
+a:active {
   text-decoration: inherit;
   color: inherit;
 }

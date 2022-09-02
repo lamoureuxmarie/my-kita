@@ -1,0 +1,17 @@
+@import "components/bookmark_card";
+
+.search-container {
+  z-index: 99;
+  position: fixed;
+  bottom: 15px;
+  right: 50px;
+}
+
+.search-container .fa-magnifying-glass {
+  padding: 15px;
+  font-size: 24px;
+  background-color:#FFE23F;
+  border: 2px solid #01001A;
+  color:#01001A;
+  border-radius: 50%;
+}
