@@ -1,42 +1,46 @@
 <div class="bookmark-ctn container">
   <% @bookmarks.each do |bookmark| %>
 
-    <div class="bookmark-card">
+    <div data-controller="bookmark">
 
-      <div class="d-flex delete justify-content-end">
-        <%= link_to bookmark_path(bookmark), data: {turbo_method: :delete, turbo_confirm: "Are you sure you want to DELETE this task?"} do %>
-            <i class="fa-solid fa-xmark"></i>
-        <% end %>
-      </div>
+      <div class="bookmark-card" data-action="click->bookmark#showContent">
 
-      <div class="infos">
-        <h6><%= bookmark.kinder_garten.name %></h6>
-        <p><%= bookmark.kinder_garten.address %></p>
-      </div>
+        <div class="d-flex delete justify-content-end">
+          <%= link_to bookmark_path(bookmark), data: {turbo_method: :delete, turbo_confirm: "Are you sure you want to DELETE this task?"} do %>
+              <i class="fa-solid fa-xmark"></i>
+          <% end %>
+        </div>
 
-      <div class="bookmark-show d-none">
-        <p><%= bookmark.kinder_garten.email %></p>
-        <p><%= bookmark.kinder_garten.phone_number %></p>
-        <div>
-          <h6>Opening hours</h6>
-          <p><%= bookmark.kinder_garten.opening_time %> - <%= bookmark.kinder_garten.closing_time %></p>
+        <div class="infos">
+          <h6><%= bookmark.kinder_garten.name %></h6>
+          <p><%= bookmark.kinder_garten.address %></p>
         </div>
-        <div>
-          <h6>Pedagogical focus</h6>
-          <p><%= bookmark.kinder_garten.pedagogical_focus %></p>
+
+        <div class="bookmark-show d-none" data-bookmark-target="content">
+          <p><%= bookmark.kinder_garten.email %></p>
+          <p><%= bookmark.kinder_garten.phone_number %></p>
+          <div>
+            <h6>Opening hours</h6>
+            <p><%= bookmark.kinder_garten.opening_time %> - <%= bookmark.kinder_garten.closing_time %></p>
+          </div>
+          <div>
+            <h6>Pedagogical focus</h6>
+            <p><%= bookmark.kinder_garten.pedagogical_focus %></p>
+          </div>
+          <div>
+            <h6>Thematic focus</h6>
+            <p><%= bookmark.kinder_garten.thematic_focus %></p>
+          </div>
+          <div>
+            <h6>Comment</h6>
+            <p></p>
+          </div>
+          <div class="buttons">
+            <button class="btn btn-primary">Contact Kita</button>
+            <button class="btn btn-secondary">Edit Task</button>
+          </div>
         </div>
-        <div>
-          <h6>Thematic focus</h6>
-          <p><%= bookmark.kinder_garten.thematic_focus %></p>
-        </div>
-        <div>
-          <h6>Comment</h6>
-          <p></p>
-        </div>
-        <div class="buttons">
-          <button class="btn btn-primary">Contact Kita</button>
-          <button class="btn btn-secondary">Edit Task</button>
-        </div>
+
       </div>
 
     </div>
