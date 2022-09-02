@@ -1,25 +1,54 @@
-<div class="container pt-3">
+<div class="bookmark-ctn container">
   <% @bookmarks.each do |bookmark| %>
 
-    <div class="bookmark-card">
-      <div class="d-flex delete justify-content-end">
-        <%= link_to bookmark_path(bookmark), data: {turbo_method: :delete, turbo_confirm: "Are you sure you want to DELETE this task?"} do %>
-            <i class="fa-solid fa-xmark"></i>
-        <% end %>
-      </div>
-      <div class="infos">
-        <h6><%= bookmark.kinder_garten.name %></h6>
-        <p><%= bookmark.kinder_garten.address %></p>
+    <div data-controller="bookmark">
+
+      <div class="bookmark-card" data-action="click->bookmark#showContent">
+
+        <div class="d-flex delete justify-content-end">
+          <%= link_to bookmark_path(bookmark), data: {turbo_method: :delete, turbo_confirm: "Are you sure you want to DELETE this task?"} do %>
+              <i class="fa-solid fa-xmark"></i>
+          <% end %>
+        </div>
+
+        <div class="infos">
+          <h6><%= bookmark.kinder_garten.name %></h6>
+          <p><%= bookmark.kinder_garten.address %></p>
+        </div>
+
+        <div class="bookmark-show d-none" data-bookmark-target="content">
+          <p><%= bookmark.kinder_garten.email %></p>
+          <p><%= bookmark.kinder_garten.phone_number %></p>
+          <div>
+            <h6>Opening hours</h6>
+            <p><%= bookmark.kinder_garten.opening_time %> - <%= bookmark.kinder_garten.closing_time %></p>
+          </div>
+          <div>
+            <h6>Pedagogical focus</h6>
+            <p><%= bookmark.kinder_garten.pedagogical_focus %></p>
+          </div>
+          <div>
+            <h6>Thematic focus</h6>
+            <p><%= bookmark.kinder_garten.thematic_focus %></p>
+          </div>
+          <div>
+            <h6>Comment</h6>
+            <p></p>
+          </div>
+          <div class="buttons">
+            <button class="btn btn-primary">Contact Kita</button>
+            <button class="btn btn-secondary">Edit Task</button>
+          </div>
+        </div>
+
       </div>
 
-      <div class="bookmark-show">
-      </div>
     </div>
 
   <% end %>
 
-  <div class="bm-search-container d-flex">
-    <div class="input d-none">
+  <div class="bm-search-container d-flex" data-controller="search-task">
+    <div class="input d-none" data-search-task-target="input">
       <%= form_with url: bookmarks_path, method: :get do |f| %>
         <%= text_field_tag :query, params[:query],
                            class: "form-control",
@@ -27,7 +56,7 @@
       <% end %>
     </div>
     <div class="icon">
-      <i class="fa-solid fa-magnifying-glass"></i>
+      <i class="fa-solid fa-magnifying-glass" data-action="click->search-task#showSearch"></i>
     </div>
   </div>
 </div>

@@ -58,8 +58,8 @@ User.create(email: "ariana@gmail.com", password: "123456")
 puts 'Creating new profiles...'
 User.all.each { |user| user.create_profile }
 
-puts 'Creating bookmarks...'
-Bookmark.create!(status: "To do",
-                comment: "Still have to email the Kita",
-                user: user,
-                kinder_garten: kita)
+# puts 'Creating bookmarks...'
+# Bookmark.create!(status: "To do",
+#                 comment: "Still have to email the Kita",
+#                 user: user,
+#                 kinder_garten: kita)

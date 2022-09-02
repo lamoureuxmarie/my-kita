@@ -11,7 +11,6 @@
   box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
   background-color: #F5F1E9;
-  height: 100px;
   padding: 15px;
   transition: box-shadow 0.2s ease-in;
   margin-bottom: 15px;
@@ -41,4 +40,11 @@ color: #fff;
 background-color: #4743FF;
 border-radius: 50%;
 padding: 8px;
+}
+
+.bookmark-show {
+  background-color: #FEFEFE;
+  border: 1px solid #dedddd;
+  padding: 15px;
+  border-radius: 0 0 10px 10px;
 }
