@@ -3,7 +3,7 @@
 
     <div data-controller="bookmark">
 
-      <div class="bookmark-card" data-action="click->bookmark#showContent">
+      <div class="bookmark-card">
 
         <div class="d-flex delete justify-content-end">
           <%= link_to bookmark_path(bookmark), data: {turbo_method: :delete, turbo_confirm: "Are you sure you want to DELETE this task?"} do %>
@@ -16,6 +16,11 @@
           <p><%= bookmark.kinder_garten.address %></p>
         </div>
 
+        <div data-action="click->bookmark#showContent" class="text-center arrows">
+          <i class="fa-solid fa-chevron-down" data-bookmark-target="down"></i>
+          <i class="fa-solid fa-chevron-up d-none" data-bookmark-target="up"></i>
+        </div>
+
         <div class="bookmark-show d-none" data-bookmark-target="content">
           <p><%= bookmark.kinder_garten.email %></p>
           <p><%= bookmark.kinder_garten.phone_number %></p>
@@ -25,19 +30,36 @@
           </div>
           <div>
             <h6>Pedagogical focus</h6>
-            <p><%= bookmark.kinder_garten.pedagogical_focus %></p>
+            <p><%= bookmark.kinder_garten.pedagogical_focus.tr('[]', '').tr('""', '') %></p>
           </div>
           <div>
             <h6>Thematic focus</h6>
-            <p><%= bookmark.kinder_garten.thematic_focus %></p>
+            <p><%= bookmark.kinder_garten.thematic_focus.tr('[]', '').tr('""', '') %></p>
+          </div>
+          <div data-controller="bookmark-comment">
+            <h6>Comment</h6>
+              <div class="d-flex justify-content-between">
+                <p><%= bookmark.comment %></p>
+                <i class="fa-solid fa-pen-to-square" data-action="click->bookmark-comment#showForm"></i>
+              </div>
+            <div class="d-none" data-bookmark-comment-target="input">
+              <div class="input-group">
+                <%= simple_form_for bookmark do |f| %>
+                  <%= f.input :comment, as: :text, data: { action: "submit->bookmark-comment#hideForm"} %>
+                  <%= button_tag type: 'submit' do %>
+                    <i class="fa-solid fa-circle-check"></i>
+                  <% end %>
+                <% end %>
+              </div>
+            </div>
           </div>
           <div>
-            <h6>Comment</h6>
-            <p></p>
+            <h6>Reminders</h6>
+            <br>
           </div>
-          <div class="buttons">
+          <div class="buttons d-flex justify-content-between">
             <button class="btn btn-primary">Contact Kita</button>
-            <button class="btn btn-secondary">Edit Task</button>
+            <button class="btn btn-secondary">Set reminder</button>
           </div>
         </div>
 

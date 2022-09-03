@@ -3,10 +3,10 @@ class BookmarksController < ApplicationController
 
   def index
     if params[:query].present?
-        sql_query = "name ILIKE :query OR comment ILIKE :query"
-        @bookmarks = Bookmark.where(sql_query, query: "%#{params[:query]}%")
+      sql_query = "name ILIKE :query OR comment ILIKE :query"
+      @bookmarks = Bookmark.where(sql_query, query: "%#{params[:query]}%")
     else
-        @bookmarks = Bookmark.all
+      @bookmarks = Bookmark.all
     end
   end
 
