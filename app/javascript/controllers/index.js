@@ -7,6 +7,9 @@ import { application } from "./application"
 import AlertController from "./alert_controller"
 application.register("alert", AlertController)
 
+import BookmarkCommentController from "./bookmark_comment_controller"
+application.register("bookmark-comment", BookmarkCommentController)
+
 import BookmarkController from "./bookmark_controller"
 application.register("bookmark", BookmarkController)
 

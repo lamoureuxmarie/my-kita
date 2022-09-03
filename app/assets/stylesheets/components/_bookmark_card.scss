@@ -1,9 +1,11 @@
-.delete {
-  opacity: 0.7;
+.delete,
+.arrows {
+  opacity: 0.6;
   transition: opacity 0.2s ease-in-out;
 }
 
-.delete:hover {
+.delete:hover,
+.arrows:hover {
   opacity: 1;
 }
 
@@ -18,6 +20,13 @@
 
 .bookmark-card:hover {
   box-shadow: none;
+}
+
+.arrows {
+  font-size: 24px;
+  margin-top: 0;
+  position: relative;
+  top: -5px;
 }
 
 .infos {
@@ -35,12 +44,12 @@
   font-size: 14px;
 }
 
-.bookmark-card .fa-message {
-color: #fff;
-background-color: #4743FF;
-border-radius: 50%;
-padding: 8px;
-}
+// .bookmark-card .fa-message {
+// color: #fff;
+// background-color: #4743FF;
+// border-radius: 50%;
+// padding: 8px;
+// }
 
 .bookmark-show {
   background-color: #FEFEFE;
