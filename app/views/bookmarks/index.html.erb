@@ -59,7 +59,9 @@
           </div>
           <div class="buttons d-flex justify-content-between">
             <button class="btn btn-primary">Contact Kita</button>
-            <button class="btn btn-secondary">Set reminder</button>
+            <%= link_to new_bookmark_reminder_path(bookmark) do%>
+              <button class="btn btn-secondary">Set reminder</button>
+            <% end %>
           </div>
         </div>
 
