@@ -15,7 +15,7 @@ puts "#{kita.name} created"
 puts "Parsing csv file..."
 
 # filepath = "db/kitas.csv"
-filepath = "db/small-kitas.csv" # For smaller seeds tests
+filepath = "db/kitas.csv" # For smaller seeds tests
 
 
 CSV.foreach(filepath, headers: :first_row) do |row|
@@ -32,9 +32,9 @@ CSV.foreach(filepath, headers: :first_row) do |row|
                       closing_time: row['closing_time'],
                       image_url: row['image_url'])
 
-    new_kita.suburb = Geocoder.search(new_kita.address).first.data["address"]["suburb"]
+    new_kita.borough = Geocoder.search(new_kita.address).first.data["address"]["borough"]
     new_kita.save
-  puts "#{new_kita.name}, located at #{new_kita.suburb} was created"
+  puts "#{new_kita.name}, located at #{new_kita.borough} was created"
 end
 # KinderGarten.create(name: 'Erlebniswelt', address: 'Sewanstr. 197 -199, 10319, Friedrichsfelde', email: 'erlebniswelt@mykita.de', phone_number: '+491794811825', pedagogical_focus: 'Nature')
 # KinderGarten.create(name: 'Mosaik', address: 'Donaustr. 88, 12043, Neukölln', email: 'mosaik@mykita.de', phone_number: '+491794811825', pedagogical_focus: 'Situational Approach')
