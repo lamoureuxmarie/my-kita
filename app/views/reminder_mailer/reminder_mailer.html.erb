@@ -3,7 +3,7 @@
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
   </head>
   <body>
-    <h1>Hey, <%= @user.name %></h1>
+    <h1>Hey, <%= @user.profile.first_name %></h1>
     <p>
       You have one upcoming event: <strong><%= @reminder.title %></strong><br>
     </p>
@@ -13,6 +13,11 @@
     <p>
       To see more details, just follow this link: <%= @url %>.
     </p>
-    <p>My kita</p>
+    <p>
+    All the best,
+    </p>
+    <p>
+    My kita
+    </p>
   </body>
 </html>
