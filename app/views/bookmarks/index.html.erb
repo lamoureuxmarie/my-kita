@@ -25,22 +25,28 @@
           <p><%= bookmark.kinder_garten.email %></p>
           <p><%= bookmark.kinder_garten.phone_number %></p>
           <div>
-            <h6>Opening hours</h6>
-            <p><%= bookmark.kinder_garten.opening_time %> - <%= bookmark.kinder_garten.closing_time %></p>
+            <% if bookmark.kinder_garten.opening_time || bookmark.kinder_garten.closing_time == true %>
+              <h6>Opening hours</h6>
+              <p><%= bookmark.kinder_garten.opening_time %> - <%= bookmark.kinder_garten.closing_time %></p>
+            <% end %>
           </div>
           <div>
-            <h6>Pedagogical focus</h6>
-            <p><%= bookmark.kinder_garten.pedagogical_focus.tr('[]', '').tr('""', '') %></p>
+            <% if bookmark.kinder_garten.pedagogical_focus? %>
+              <h6>Pedagogical focus</h6>
+              <p><%= bookmark.kinder_garten.pedagogical_focus.tr('[]', '').tr('""', '') %></p>
+            <% end %>
           </div>
           <div>
-            <h6>Thematic focus</h6>
-            <p><%= bookmark.kinder_garten.thematic_focus.tr('[]', '').tr('""', '') %></p>
+            <% if bookmark.kinder_garten.thematic_focus? %>
+              <h6>Thematic focus</h6>
+              <p><%= bookmark.kinder_garten.thematic_focus.tr('[]', '').tr('""', '') %></p>
+            <% end %>
           </div>
           <div data-controller="bookmark-comment">
             <h6>Comment</h6>
               <div class="d-flex justify-content-between">
-                <p><%= bookmark.comment %></p>
-                <i class="fa-solid fa-pen-to-square" data-action="click->bookmark-comment#showForm"></i>
+                  <p><%= bookmark.comment %></p>
+                  <i class="fa-solid fa-pen-to-square" data-action="click->bookmark-comment#showForm"></i>
               </div>
             <div class="d-none" data-bookmark-comment-target="input">
               <div class="input-group">
