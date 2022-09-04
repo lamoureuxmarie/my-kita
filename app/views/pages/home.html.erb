@@ -10,7 +10,7 @@
         <div class="col-12 d-flex search-container">
           <%= text_field_tag :query, params[:query], class: "form-control",
               placeholder: "Address" %>
-          <%= f.select :suburb, ['Mitte', 'Kreuzberg'], {prompt: "Neighborhood"}, {required: true, class: "form-control"} %>
+          <%# <%= f.select :suburb, ['Mitte', 'Kreuzberg'], {prompt: "Neighborhood"}, {required: true, class: "form-control"} %> %>
           <%= submit_tag "Search", class: "btn btn-primary search" %>
         </div>
           <!-- <%= f.select :distance, [['2km', 1], ['5km', 2], ['10km', 3]], {}, {class: "distance"} %> -->
