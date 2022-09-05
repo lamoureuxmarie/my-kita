@@ -33,13 +33,13 @@
           <div>
             <% if bookmark.kinder_garten.pedagogical_focus? %>
               <h6>Pedagogical focus</h6>
-              <p><%= bookmark.kinder_garten.pedagogical_focus.tr('[]', '').tr('""', '') %></p>
+              <p><%= bookmark.kinder_garten.pedagogical_focus %></p>
             <% end %>
           </div>
           <div>
             <% if bookmark.kinder_garten.thematic_focus? %>
               <h6>Thematic focus</h6>
-              <p><%= bookmark.kinder_garten.thematic_focus.tr('[]', '').tr('""', '') %></p>
+              <p><%= bookmark.kinder_garten.thematic_focus %></p>
             <% end %>
           </div>
           <div data-controller="bookmark-comment">
@@ -77,7 +77,7 @@
 
   <div class="bm-search-container d-flex" data-controller="search-task">
     <div class="input d-none" data-search-task-target="input">
-      <%= form_with url: bookmarks_path, method: :get do |f| %>
+      <%= form_with url: bookmarks_path, method: :get, local: true do |f| %>
         <%= text_field_tag :query, params[:query],
                            class: "form-control",
                            placeholder: "Find a task" %>

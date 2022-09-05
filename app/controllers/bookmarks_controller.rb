@@ -4,10 +4,10 @@ class BookmarksController < ApplicationController
   def index
     @bookmarks = policy_scope(Bookmark)
     if params[:query].present?
-      sql_query = "name ILIKE :query OR comment ILIKE :query"
-      @bookmarks = Bookmark.where(sql_query, query: "%#{params[:query]}%")
+      kinder_gartens = KinderGarten.search_by_name_address(params[:query])
+      @bookmarks = current_user.bookmarks.where(kinder_garten: kinder_gartens)
     else
-      @bookmarks = Bookmark.all
+      @bookmarks = current_user.bookmarks
     end
   end
 
