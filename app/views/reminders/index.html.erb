@@ -1,7 +1,7 @@
-<div class="container">
+<div class="container pt-5">
   <% @reminders.each do |r| %>
     <div>
-      <h2><%= r.title %></h2>
+      <h2 class="pt-5"><%= r.title %></h2>
       <p><%= r.content %></p>
       <p><%= r.due_date %></p>
       <div class="d-flex">
@@ -11,8 +11,13 @@
           <% end %>
         </span>
         <span>
-          <%= link_to "Edit", edit_reminder_path(r)%>
+          <%= button_to "Edit", edit_reminder_path(r), class: " btn btn-secondary"%>
         </span>
+          <%= link_to "Get notification",
+              "https://api.telegram.org/bot5630282214:AAFiPdf8vfMN285UtdDMvYBrCL-DK8Dubug/sendMessage?chat_id=1789513066&text=Notification",
+              target: "_blank",
+              class: "btn btn-primary"
+              %>
       </div>
     </div>
   <% end %>

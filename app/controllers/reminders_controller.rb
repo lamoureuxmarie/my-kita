@@ -17,7 +17,6 @@ class RemindersController < ApplicationController
     @reminder = Reminder.new(reminder_params)
     @reminder.bookmark = @bookmark
     if @reminder.save
-      ReminderMailer.with(user: current_user, reminder: @reminder).reminder_mailer.deliver_later
       redirect_to reminders_path
     else
       render :new, notice: "Oops. Something went wrong..."
