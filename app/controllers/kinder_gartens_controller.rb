@@ -1,4 +1,7 @@
 class KinderGartensController < ApplicationController
+  skip_after_action :verify_authorized, only: %i[index show]
+  skip_before_action :authenticate_user!
+
   def display_markers(kinder_gartens)
     @markers = kinder_gartens.geocoded.map do |k|
       {
@@ -11,6 +14,7 @@ class KinderGartensController < ApplicationController
   end
 
   def index
+    @kinder_gartens = policy_scope(KinderGarten)
     if params[:borough].present?
       sql_query = "borough ILIKE :query"
       @kinder_gartens = KinderGarten.where(sql_query, query: "%#{params[:borough]}%")
@@ -22,6 +26,7 @@ class KinderGartensController < ApplicationController
   end
 
   def show
+    # authorize @kinder_garten
     @kinder_garten = KinderGarten.find(params[:id])
     # @kinder_garten.pedagogical_focus.join(",")
   end
