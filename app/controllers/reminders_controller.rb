@@ -28,11 +28,9 @@ class RemindersController < ApplicationController
     end
   end
 
-  # def message
-  #   # Telegram.bot.send_message
-  #   HTTParty.post("https://api.telegram.org/bot#{ENV['TELEGRAM']}/sendMessage?chat_id=1789513066&text=Upcoming event: #{Reminder.last.title}%0ASubject: #{Reminder.last.content}%0ADue date: #{Reminder.last.due_date}")
-  #   redirect_to reminders_path, notice: "Success"
-  # end
+  def message
+    SendTelegramMessageJob.perform_now(current_user.chat_id, @reminder) if current_user.chat_id.present?
+  end
 
   def edit
   end

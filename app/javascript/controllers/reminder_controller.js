@@ -7,4 +7,8 @@ export default class extends Controller {
   showContent() {
     this.contentTarget.classList.toggle("d-none")
   }
+
+  hideContent() {
+    this.contentTarget.classList.add("d-none")
+  }
 }

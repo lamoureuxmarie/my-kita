@@ -1,4 +1,4 @@
-<div class="container pt-5">
+<div class="container pt-5 reminders">
   <div class="pt-4 pb-4" data-controller="reminder">
     <%= month_calendar(attribute: :due_date, events: @reminders) do |date, reminders| %>
         <%= date.day %>
@@ -12,21 +12,22 @@
             <div class="reminder-show d-none border shadow-sm" data-reminder-target="content">
               <div class="d-flex justify-content-between">
                 <h6><%= r.title %></h6>
-                <%= link_to reminder_path(r), data: {turbo_method: :delete, turbo_confirm: "Are you sure you want to DELETE you booking?"} do %>
-                    <i class="fa-solid fa-xmark"></i>
-                <% end %>
+                <i class="fa-solid fa-xmark" data-action="click->reminder#hideContent"></i>
               </div>
               <p><%= r.content %></p>
               <p><%= r.due_date %></p>
-                <div class="d-flex">
-                  <span>
-                    <%= button_to "Edit", edit_reminder_path(r), class: " btn btn-secondary"%>
-                  </span>
+                <div class="d-flex justify-content-evenly">
+                    <%= link_to "Edit", edit_reminder_path(r), class: "btn btn-secondary"%>
                     <%= button_to "Get notification", reminder_message_path(r), class: "btn btn-primary" %>
+                    <%= link_to reminder_path(r), data: {turbo_method: :delete, turbo_confirm: "Are you sure you want to DELETE you booking?"} do %>
+                      <i class="fa-solid fa-trash" data-action="click->reminder#showContent"></i>
+                    <% end %>
                 </div>
             </div>
 
           <% end %>
     <% end %>
+
+    <%= link_to "Back to Bookmarks", bookmarks_path, class: "btn btn-primary mt-5"%>
   </div>
 </div>

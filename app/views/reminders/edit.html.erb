@@ -1,8 +1,9 @@
-<div class="container padding-top" data-controller="flatpickr">
+<div class="container pt-5" data-controller="flatpickr">
   <div class="d-flex align-items-center flex-column">
     <div class="col-sm-12 col-lg-6">
-      <h1 class="text-center">Update your reminder</h1>
+      <h1 class="text-center pt-5">Update Reminder</h1>
       <%= render 'form', reminder: @reminder, bookmark: @bookmark %>
+      <%= link_to "Back to Reminders", reminders_path, class: "btn btn-secondary mt-3"%>
     </div>
   </div>
 </div>
