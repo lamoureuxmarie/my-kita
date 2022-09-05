@@ -19,9 +19,9 @@ class RemindersController < ApplicationController
   end
 
   def create
-    authorize @reminder
     @reminder = Reminder.new(reminder_params)
     @reminder.bookmark = @bookmark
+    authorize @reminder
     if @reminder.save
       SendTelegramMessageJob.perform_now(current_user.chat_id, @reminder) if current_user.chat_id.present?
       redirect_to reminders_path

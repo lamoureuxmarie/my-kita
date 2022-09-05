@@ -20,9 +20,9 @@ class BookmarksController < ApplicationController
   end
 
   def create
-    authorize @bookmark
     @bookmark = Bookmark.new
     @bookmark.user = current_user
+    authorize @bookmark
     @kinder_garten = KinderGarten.find(params[:kinder_garten_id])
     @bookmark.kinder_garten = @kinder_garten
     @bookmark.save
