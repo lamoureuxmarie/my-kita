@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_09_04_102550) do
+ActiveRecord::Schema[7.0].define(version: 2022_09_05_134134) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -83,6 +83,17 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_04_102550) do
     t.index ["user_id"], name: "index_profiles_on_user_id"
   end
 
+  create_table "ratings", force: :cascade do |t|
+    t.string "content"
+    t.integer "rating"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "kinder_garten_id", null: false
+    t.index ["kinder_garten_id"], name: "index_ratings_on_kinder_garten_id"
+    t.index ["user_id"], name: "index_ratings_on_user_id"
+  end
+
   create_table "reminders", force: :cascade do |t|
     t.string "title"
     t.string "content"
@@ -117,5 +128,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_04_102550) do
   add_foreign_key "bookmarks", "kinder_gartens"
   add_foreign_key "bookmarks", "users"
   add_foreign_key "profiles", "users"
+  add_foreign_key "ratings", "kinder_gartens"
+  add_foreign_key "ratings", "users"
   add_foreign_key "reminders", "bookmarks"
 end

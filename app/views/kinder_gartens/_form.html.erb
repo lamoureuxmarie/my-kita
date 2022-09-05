@@ -1,0 +1,8 @@
+<div class="row">
+  <div class="col-xs-4">
+    <%= simple_form_for [kinder_garten, rating], data: { controller: "submit" } do |f| %>
+      <%= f.input :rating, collection: (1..5).to_a, input_html: {data: { controller: "star-rating", action: "click->form-submit#submit"} }  %>
+      <%= f.submit %>
+    <% end %>
+  </div>
+</div>

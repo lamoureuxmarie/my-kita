@@ -92,4 +92,3 @@ gem "pundit"
 gem "pg_search"
 
 gem "pry"
-

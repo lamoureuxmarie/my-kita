@@ -6,6 +6,7 @@ class User < ApplicationRecord
   has_many :bookmarks
   has_one :profile
   after_create :create_profile
+  has_many :ratings
 
   def create_profile
     Profile.create!(user: self)
