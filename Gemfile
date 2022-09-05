@@ -85,6 +85,9 @@ gem "cloudinary"
 # Geocoding
 gem "geocoder"
 
+# Pundit
+gem "pundit"
+
 # PG Search
 gem "pg_search"
 
