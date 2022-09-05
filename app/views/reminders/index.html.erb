@@ -1,19 +1,21 @@
 <div class="container pt-5">
-  <div class="pt-4 pb-4">
+  <div class="pt-4 pb-4" data-controller="reminder">
     <%= month_calendar(attribute: :due_date, events: @reminders) do |date, reminders| %>
         <%= date.day %>
           <% reminders.each do |r| %>
             <% if r.present? %>
-              <div style="background-color: #4743FF">
+              <div style="background-color: #4743FF; color: #4743FF" data-action="click->reminder#showContent">
                 <p>|</p>
               </div>
             <% end %>
 
-            <div class="reminder-show d-none">
-              <%= link_to reminder_path(r), data: {turbo_method: :delete, turbo_confirm: "Are you sure you want to DELETE you booking?"} do %>
-                  <i class="fa-solid fa-xmark"></i>
-              <% end %>
-              <h6><%= r.title %></h6>
+            <div class="reminder-show d-none border shadow-sm" data-reminder-target="content">
+              <div class="d-flex justify-content-between">
+                <h6><%= r.title %></h6>
+                <%= link_to reminder_path(r), data: {turbo_method: :delete, turbo_confirm: "Are you sure you want to DELETE you booking?"} do %>
+                    <i class="fa-solid fa-xmark"></i>
+                <% end %>
+              </div>
               <p><%= r.content %></p>
               <p><%= r.due_date %></p>
                 <div class="d-flex">
