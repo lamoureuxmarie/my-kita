@@ -1,3 +1,5 @@
+# require 'telegram/bot'
+
 class RemindersController < ApplicationController
   before_action :find_reminder, only: %i[show edit update destroy]
   before_action :find_bookmark, only: %i[new create]
@@ -17,11 +19,18 @@ class RemindersController < ApplicationController
     @reminder = Reminder.new(reminder_params)
     @reminder.bookmark = @bookmark
     if @reminder.save
+      ReminderMailer.send_message(@reminder).deliver_now
       redirect_to reminders_path
     else
       render :new, notice: "Oops. Something went wrong..."
     end
   end
+
+  # def message
+  #   # Telegram.bot.send_message
+  #   HTTParty.post("https://api.telegram.org/bot#{ENV['TELEGRAM']}/sendMessage?chat_id=1789513066&text=Upcoming event: #{Reminder.last.title}%0ASubject: #{Reminder.last.content}%0ADue date: #{Reminder.last.due_date}")
+  #   redirect_to reminders_path, notice: "Success"
+  # end
 
   def edit
   end

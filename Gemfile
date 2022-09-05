@@ -90,3 +90,6 @@ gem "pry"
 
 # Send reminders by Telegran
 gem 'telegram-bot'
+
+# HTTParty
+gem "httparty"

@@ -1,12 +1,8 @@
 class ReminderMailer < ApplicationMailer
   default from: 'contact@my-kita.xyz'
 
-  def reminder_mailer
-    @user = params[:user]
-    @reminder = params[:reminder]
-    @url = 'https://www.my-kita.xyz/reminders'
-    mail(from: "Marie <contact@my-kita.xyz>",
-         to: User.last.email,
-         subject: 'Reminder')
+  def send_message(reminder)
+    # Telegram.bot.send_message
+    HTTParty.post("https://api.telegram.org/bot#{ENV['TELEGRAM']}/sendMessage?chat_id=1789513066&text=Upcoming event: #{reminder.title}%0ASubject: #{reminder.content}%0ADue date: #{reminder.due_date}")
   end
 end

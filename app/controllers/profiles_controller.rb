@@ -9,11 +9,17 @@ class ProfilesController < ApplicationController
 
   def update
     if @profile.update(profile_params)
+      if @profile.phone_number.update
+        @profile.chat_id = 
       redirect_to profile_path(@profile), notice: "Updated successfully"
     else
       render :edit
     end
   end
+
+  # Info box to ask user to register their phone number
+  # If new phone registered, update profile with new chat_id
+  # Only allow create and send reminder if user.profile.phone_number exists
 
   private
 

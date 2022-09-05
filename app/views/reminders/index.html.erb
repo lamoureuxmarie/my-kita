@@ -1,4 +1,8 @@
 <div class="container pt-5">
+  <div class="mt-5 p-5 bg-light border">
+    To receive reminders via Telegram, please add your phone number to your
+    <%= link_to "profile", profile_path(current_user.profile), target: "_blank", class: "link-warning" %>
+  </div>
   <% @reminders.each do |r| %>
     <div>
       <h2 class="pt-5"><%= r.title %></h2>
@@ -13,11 +17,7 @@
         <span>
           <%= button_to "Edit", edit_reminder_path(r), class: " btn btn-secondary"%>
         </span>
-          <%= link_to "Get notification",
-              "https://api.telegram.org/bot5630282214:AAFiPdf8vfMN285UtdDMvYBrCL-DK8Dubug/sendMessage?chat_id=1789513066&text=Notification",
-              target: "_blank",
-              class: "btn btn-primary"
-              %>
+          <%= button_to "Send notification", reminder_message_path(r), class: "btn btn-primary" %>
       </div>
     </div>
   <% end %>
