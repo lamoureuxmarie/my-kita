@@ -84,3 +84,5 @@ gem "cloudinary"
 
 # Geocoding
 gem "geocoder"
+
+gem "pry"

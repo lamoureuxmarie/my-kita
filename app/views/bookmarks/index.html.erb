@@ -33,13 +33,13 @@
           <div>
             <% if bookmark.kinder_garten.pedagogical_focus? %>
               <h6>Pedagogical focus</h6>
-              <p><%= bookmark.kinder_garten.pedagogical_focus.tr('[]', '').tr('""', '') %></p>
+              <p><%= bookmark.kinder_garten.pedagogical_focus %></p>
             <% end %>
           </div>
           <div>
             <% if bookmark.kinder_garten.thematic_focus? %>
               <h6>Thematic focus</h6>
-              <p><%= bookmark.kinder_garten.thematic_focus.tr('[]', '').tr('""', '') %></p>
+              <p><%= bookmark.kinder_garten.thematic_focus %></p>
             <% end %>
           </div>
           <div data-controller="bookmark-comment">
