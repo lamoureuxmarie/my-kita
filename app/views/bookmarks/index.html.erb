@@ -77,7 +77,7 @@
 
   <div class="bm-search-container d-flex" data-controller="search-task">
     <div class="input d-none" data-search-task-target="input">
-      <%= form_with url: bookmarks_path, method: :get do |f| %>
+      <%= form_with url: bookmarks_path, method: :get, local: true do |f| %>
         <%= text_field_tag :query, params[:query],
                            class: "form-control",
                            placeholder: "Find a task" %>
