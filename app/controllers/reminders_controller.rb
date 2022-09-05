@@ -14,7 +14,7 @@ class RemindersController < ApplicationController
   end
 
   def new
-    authorize @reminder
+    authorize(Reminder)
     @reminder = Reminder.new
   end
 
