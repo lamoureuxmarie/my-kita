@@ -11,9 +11,9 @@ class KinderGartensController < ApplicationController
   end
 
   def index
-    if params[:query].present?
-      sql_query = "suburb ILIKE :query"
-      @kinder_gartens = KinderGarten.where(sql_query, query: "%#{params[:query]}%")
+    if params[:borough].present?
+      sql_query = "borough ILIKE :query"
+      @kinder_gartens = KinderGarten.where(sql_query, query: "%#{params[:borough]}%")
       # @kinder_gartens = KinderGarten.near(sql_query, query: "%#{params[:query]}%", 5)
     else
       @kinder_gartens = KinderGarten.all

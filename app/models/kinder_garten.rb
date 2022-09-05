@@ -10,4 +10,16 @@ class KinderGarten < ApplicationRecord
     using: {
       tsearch: { prefix: true }
     }
+  BOROUGH = ['Charlottenburg-Wilmersdorf',
+             'Friedrichshain-Kreuzberg',
+             'Lichtenberg',
+             'Marzahn-Hellersdorf',
+             'Mitte',
+             'Neukölln',
+             'Pankow',
+             'Reinickendorf',
+             'Spandau',
+             'Steglitz-Zehlendorf',
+             'Tempelhof-Schöneberg',
+             'Treptow-Köpenick']
 end
