@@ -12,4 +12,5 @@ Rails.application.routes.draw do
   end
   resources :reminders, only: %i[index show edit update destroy]
   post "reminder/message", to: "reminders#message"
+  get "job/fetch_id", to: "jobs#fetch_id"
 end
