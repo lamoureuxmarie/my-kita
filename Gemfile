@@ -96,3 +96,11 @@ gem "httparty"
 
 # Calendar
 gem "simple_calendar"
+
+# Pundit
+gem "pundit"
+
+# PG Search
+gem "pg_search"
+
+

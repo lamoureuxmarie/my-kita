@@ -2,12 +2,16 @@ class ProfilesController < ApplicationController
   before_action :find_profile, only: %i[show edit update]
 
   def show
+    authorize @profile
   end
 
   def edit
+    authorize @profile
+
   end
 
   def update
+    authorize @profile
     if @profile.update(profile_params)
       redirect_to profile_path(@profile), notice: "Updated successfully"
     else

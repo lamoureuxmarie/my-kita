@@ -5,7 +5,7 @@ class RemindersController < ApplicationController
   before_action :find_bookmark, only: %i[new create]
 
   def index
-    # @reminders = Reminder.all
+    @reminders = policy_scope(Reminder)
     start_date = params.fetch(:due_date, Date.today).to_date
     @reminders = Reminder.where(due_date: start_date.beginning_of_month.beginning_of_week..start_date.end_of_month.end_of_week)
   end
@@ -14,10 +14,12 @@ class RemindersController < ApplicationController
   end
 
   def new
+    authorize @reminder
     @reminder = Reminder.new
   end
 
   def create
+    authorize @reminder
     @reminder = Reminder.new(reminder_params)
     @reminder.bookmark = @bookmark
     if @reminder.save
@@ -33,9 +35,11 @@ class RemindersController < ApplicationController
   end
 
   def edit
+    authorize @reminder
   end
 
   def update
+    authorize @reminder
     if @reminder.update(reminder_params)
       redirect_to bookmark_path(:bookmark_id), notice: "Updated successfully"
     else
@@ -44,6 +48,7 @@ class RemindersController < ApplicationController
   end
 
   def destroy
+    authorize @reminder
     @reminder.destroy
     redirect_to reminders_path, status: :see_other
   end

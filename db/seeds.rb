@@ -17,7 +17,7 @@ puts "#{kita.name} created"
 puts "Parsing csv file..."
 
 # filepath = "db/kitas.csv"
-filepath = "db/kitas.csv" # For smaller seeds tests
+filepath = "db/small-kitas.csv" # For smaller seeds tests
 
 def translatee(string)
   if string.include?("Offene-Arbeit")

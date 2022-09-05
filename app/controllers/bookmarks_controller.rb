@@ -2,11 +2,12 @@ class BookmarksController < ApplicationController
   before_action :find_bookmark, only: %i[show edit update destroy]
 
   def index
+    @bookmarks = policy_scope(Bookmark)
     if params[:query].present?
-      sql_query = "name ILIKE :query OR comment ILIKE :query"
-      @bookmarks = Bookmark.where(sql_query, query: "%#{params[:query]}%")
+      kinder_gartens = KinderGarten.search_by_name_address(params[:query])
+      @bookmarks = current_user.bookmarks.where(kinder_garten: kinder_gartens)
     else
-      @bookmarks = Bookmark.all
+      @bookmarks = current_user.bookmarks
     end
   end
 
@@ -14,10 +15,12 @@ class BookmarksController < ApplicationController
   end
 
   def new
+    authorize @bookmark
     @bookmark = Bookmark.new
   end
 
   def create
+    authorize @bookmark
     @bookmark = Bookmark.new
     @bookmark.user = current_user
     @kinder_garten = KinderGarten.find(params[:kinder_garten_id])
@@ -26,9 +29,11 @@ class BookmarksController < ApplicationController
   end
 
   def edit
+    authorize @bookmark
   end
 
   def update
+    authorize @bookmark
     if @bookmark.update(bookmark_params)
       redirect_to bookmarks_path, notice: "Updated successfully"
     else
@@ -37,6 +42,7 @@ class BookmarksController < ApplicationController
   end
 
   def destroy
+    authorize @bookmark
     @bookmark.destroy
     redirect_to bookmarks_path, status: :see_other
   end
