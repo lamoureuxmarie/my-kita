@@ -1,0 +1,21 @@
+.calendar-heading {
+  text-align: center;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.calendar-heading a {
+  opacity: 0.7;
+  font-size: 14px;
+}
+
+.calendar-heading a:hover {
+  opacity: 1;
+}
+
+.calendar-heading .calendar-title {
+  font-weight: 700;
+  font-size: 18px;
+}

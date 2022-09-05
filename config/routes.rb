@@ -11,5 +11,5 @@ Rails.application.routes.draw do
     resources :reminders, only: %i[new create]
   end
   resources :reminders, only: %i[index show edit update destroy]
-
+  post "reminder/message", to: "reminders#message"
 end

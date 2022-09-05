@@ -1,0 +1,16 @@
+.reminder-show {
+  position: absolute;
+  background-color: #fff;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  width: 80vw;
+  border-radius: 10px;
+  padding: 15px;
+}
+
+.reminder-show .fa-trash {
+  position: relative;
+  top: 10px;
+}

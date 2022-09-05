@@ -1,19 +1,33 @@
-<div class="container">
-  <% @reminders.each do |r| %>
-    <div>
-      <h2><%= r.title %></h2>
-      <p><%= r.content %></p>
-      <p><%= r.due_date %></p>
-      <div class="d-flex">
-        <span>
-          <%= link_to reminder_path(r), data: {turbo_method: :delete, turbo_confirm: "Are you sure you want to DELETE you booking?"} do %>
-            <i class="fa-solid fa-trash" id="trash-can"></i>
+<div class="container pt-5 reminders">
+  <div class="pt-4 pb-4" data-controller="reminder">
+    <%= month_calendar(attribute: :due_date, events: @reminders) do |date, reminders| %>
+        <%= date.day %>
+          <% reminders.each do |r| %>
+            <% if r.present? %>
+              <div style="background-color: #4743FF; color: #4743FF" data-action="click->reminder#showContent">
+                <p>|</p>
+              </div>
+            <% end %>
+
+            <div class="reminder-show d-none border shadow-sm" data-reminder-target="content">
+              <div class="d-flex justify-content-between">
+                <h6><%= r.title %></h6>
+                <i class="fa-solid fa-xmark" data-action="click->reminder#hideContent"></i>
+              </div>
+              <p><%= r.content %></p>
+              <p><%= r.due_date %></p>
+                <div class="d-flex justify-content-evenly">
+                    <%= link_to "Edit", edit_reminder_path(r), class: "btn btn-secondary"%>
+                    <%= button_to "Get notification", reminder_message_path(r), class: "btn btn-primary" %>
+                    <%= link_to reminder_path(r), data: {turbo_method: :delete, turbo_confirm: "Are you sure you want to DELETE you booking?"} do %>
+                      <i class="fa-solid fa-trash" data-action="click->reminder#showContent"></i>
+                    <% end %>
+                </div>
+            </div>
+
           <% end %>
-        </span>
-        <span>
-          <%= link_to "Edit", edit_reminder_path(r)%>
-        </span>
-      </div>
-    </div>
-  <% end %>
+    <% end %>
+
+    <%= link_to "Back to Bookmarks", bookmarks_path, class: "btn btn-primary mt-5"%>
+  </div>
 </div>
