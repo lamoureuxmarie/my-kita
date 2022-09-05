@@ -1,24 +1,30 @@
 <div class="container pt-5">
-  <div class="mt-5 p-5 bg-light border">
-    To receive reminders via Telegram, send <%= current_user.telegram_token %> to
-    <%= link_to "our bot", "https://t.me/my_kita_bot", target: "_blank", class: "link-warning" %>
-  </div>
-  <% @reminders.each do |r| %>
-    <div>
-      <h2 class="pt-5"><%= r.title %></h2>
-      <p><%= r.content %></p>
-      <p><%= r.due_date %></p>
-      <div class="d-flex">
-        <span>
-          <%= link_to reminder_path(r), data: {turbo_method: :delete, turbo_confirm: "Are you sure you want to DELETE you booking?"} do %>
-            <i class="fa-solid fa-trash" id="trash-can"></i>
+  <div class="pt-4 pb-4">
+    <%= month_calendar(attribute: :due_date, events: @reminders) do |date, reminders| %>
+        <%= date.day %>
+          <% reminders.each do |r| %>
+            <% if r.present? %>
+              <div style="background-color: #4743FF">
+                <p>|</p>
+              </div>
+            <% end %>
+
+            <div class="reminder-show d-none">
+              <%= link_to reminder_path(r), data: {turbo_method: :delete, turbo_confirm: "Are you sure you want to DELETE you booking?"} do %>
+                  <i class="fa-solid fa-xmark"></i>
+              <% end %>
+              <h6><%= r.title %></h6>
+              <p><%= r.content %></p>
+              <p><%= r.due_date %></p>
+                <div class="d-flex">
+                  <span>
+                    <%= button_to "Edit", edit_reminder_path(r), class: " btn btn-secondary"%>
+                  </span>
+                    <%= button_to "Get notification", reminder_message_path(r), class: "btn btn-primary" %>
+                </div>
+            </div>
+
           <% end %>
-        </span>
-        <span>
-          <%= button_to "Edit", edit_reminder_path(r), class: " btn btn-secondary"%>
-        </span>
-          <%= button_to "Send notification", reminder_message_path(r), class: "btn btn-primary" %>
-      </div>
-    </div>
-  <% end %>
+    <% end %>
+  </div>
 </div>

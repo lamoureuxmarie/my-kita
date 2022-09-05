@@ -69,13 +69,13 @@
             <%= link_to new_bookmark_reminder_path(bookmark) do%>
               <button class="btn btn-secondary">Set reminder</button>
             <% end %>
+          </div>
           <% else %>
             <div class="mt-5 p-5 bg-light border">
               To receive reminders via Telegram, send <%= current_user.telegram_token %> to
               <%= link_to "our bot", "https://t.me/my_kita_bot", target: "_blank", class: "link-warning" %>
             </div>
           <% end %>
-          </div>
         </div>
 
       </div>

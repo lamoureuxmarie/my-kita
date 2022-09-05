@@ -94,3 +94,5 @@ gem 'telegram-bot'
 # HTTParty
 gem "httparty"
 
+# Calendar
+gem "simple_calendar"
