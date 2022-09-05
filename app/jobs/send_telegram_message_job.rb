@@ -1,8 +1,8 @@
-class ReminderMailer < ApplicationMailer
-  default from: 'contact@my-kita.xyz'
+class SendTelegramMessageJob < ApplicationJob
+  queue_as :default
 
-  def send_message(reminder)
-    # Telegram.bot.send_message
+  def perform(chat_id, reminder)
+    # Do something later
     HTTParty.post("https://api.telegram.org/bot#{ENV['TELEGRAM']}/sendMessage?chat_id=#{chat_id}&text=Upcoming event: #{reminder.title}%0ASubject: #{reminder.content}%0ADue date: #{reminder.due_date}")
   end
 end

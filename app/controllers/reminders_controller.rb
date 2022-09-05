@@ -19,7 +19,7 @@ class RemindersController < ApplicationController
     @reminder = Reminder.new(reminder_params)
     @reminder.bookmark = @bookmark
     if @reminder.save
-      ReminderMailer.send_message(@reminder).deliver_now
+      SendTelegramMessageJob.perform_now(current_user.chat_id, @reminder) if current_user.chat_id.present?
       redirect_to reminders_path
     else
       render :new, notice: "Oops. Something went wrong..."

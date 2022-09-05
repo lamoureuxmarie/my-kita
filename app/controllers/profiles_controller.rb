@@ -9,8 +9,6 @@ class ProfilesController < ApplicationController
 
   def update
     if @profile.update(profile_params)
-      if @profile.phone_number.update
-        @profile.chat_id = 
       redirect_to profile_path(@profile), notice: "Updated successfully"
     else
       render :edit

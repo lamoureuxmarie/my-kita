@@ -1,7 +1,7 @@
 <div class="container pt-5">
   <div class="mt-5 p-5 bg-light border">
-    To receive reminders via Telegram, please add your phone number to your
-    <%= link_to "profile", profile_path(current_user.profile), target: "_blank", class: "link-warning" %>
+    To receive reminders via Telegram, send <%= current_user.telegram_token %> to
+    <%= link_to "our bot", "https://t.me/my_kita_bot", target: "_blank", class: "link-warning" %>
   </div>
   <% @reminders.each do |r| %>
     <div>
