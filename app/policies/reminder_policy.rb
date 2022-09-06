@@ -13,7 +13,8 @@ class ReminderPolicy < ApplicationPolicy
   end
 
   def create?
-    record.user == user
+    # record.user == user
+    true
   end
 
   def edit?
