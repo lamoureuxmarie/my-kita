@@ -3,6 +3,7 @@
 class RemindersController < ApplicationController
   before_action :find_reminder, only: %i[show edit update destroy]
   before_action :find_bookmark, only: %i[new create]
+  skip_after_action :verify_authorized, only: %i[message]
 
   def index
     @reminders = policy_scope(Reminder)
