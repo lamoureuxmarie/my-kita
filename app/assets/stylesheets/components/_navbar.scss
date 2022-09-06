@@ -6,7 +6,7 @@
 }
 
 .navbar-transparent .navbar-collapse {
-  // flex-grow: 0;
+  flex-grow: 0;
   background-color: #FFFEFB;
   position: fixed;
   bottom: 0;
@@ -82,5 +82,8 @@
   position: absolute;
   right: 175px;
   top: -5px;
-  font-weight: 900;
+}
+
+.force-block {
+  display: block !important;
 }

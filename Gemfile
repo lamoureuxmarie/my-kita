@@ -103,4 +103,6 @@ gem "pundit"
 # PG Search
 gem "pg_search"
 
-gem "pry"
+# Async Job
+gem "sidekiq"
+gem "sidekiq-failures", "~> 1.0"

@@ -25,6 +25,9 @@ application.register("hello", HelloController)
 import MapController from "./map_controller"
 application.register("map", MapController)
 
+import RatingController from "./rating_controller"
+application.register("rating", RatingController)
+
 import ReminderController from "./reminder_controller"
 application.register("reminder", ReminderController)
 

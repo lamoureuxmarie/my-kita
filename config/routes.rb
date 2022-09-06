@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
+  require "sidekiq/web"
   root to: "pages#home"
 
   resources :templates
@@ -25,4 +26,6 @@ Rails.application.routes.draw do
 
   get '/404', to: 'errors#not_found'
   get '/500', to: 'errors#internal_server_error'
+
+  mount Sidekiq::Web => '/sidekiq'
 end

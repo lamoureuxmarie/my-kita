@@ -11,7 +11,7 @@ class FetchTelegramChatIdsJob < ApplicationJob
       user = User.find_by(telegram_token: t[:telegram_token])
       next unless user.present?
 
-      user.update(chat_id: t[:chat_id])
+      user.update(chat_id: t[:chat_id].to_s)
     end
   end
 end
