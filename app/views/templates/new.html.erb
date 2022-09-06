@@ -1,8 +1,8 @@
 <div class="container padding-top">
   <div class="d-flex align-items-center flex-column">
     <div class="col-sm-12 col-lg-6 pt-5">
-      <h1 class="text-center pt-5">Create new email</h1>
-        <%= simple_form_for(@template) do |f| %>
+      <h1 class="text-center pt-5">New email</h1>
+        <%= simple_form_for(@template), action: "mailto:marie.lamoureux0304@gmail.com", method: :get, target: "_blank" do |f| %>
           <%= f.input :title, label: "Subject" %>
           <%= f.input :content %>
           <%= f.submit class: 'button secondary-button'%>

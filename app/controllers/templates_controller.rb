@@ -16,6 +16,7 @@ class TemplatesController < ApplicationController
 
   def create
     @template = Template.new(template_params)
+    @template.bookmark = @bookmark
     authorize @template
     @template.save
     if @template.save
