@@ -3,6 +3,7 @@ import Swal from 'sweetalert2'
 
 // Connects to data-controller="alert"
 export default class extends Controller {
+  static values = { redirectUrl: String}
   connect() {
     console.log('Controller connected')
   }
@@ -17,7 +18,7 @@ export default class extends Controller {
       title: 'Added Successfully!',
       showConfirmButton: true,
       showDenyButton: true,
-      confirmButtonText: '<a href="http://localhost:3000/bookmarks">See list</a>',
+      confirmButtonText: `<a href="${this.redirectUrl}">See list</a>`,
       confirmButtonColor: '#FFE23F',
       denyButtonText: 'Go Back',
       denyButtonColor: '#F5F1E9'

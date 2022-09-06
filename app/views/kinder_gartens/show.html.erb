@@ -43,7 +43,7 @@
     </div>
     <div class="white-div d-flex align-items-center">
       <% if current_user %>
-        <div class="add-to-list-button" data-controller="alert">
+        <div class="add-to-list-button" data-controller="alert" data-alert-redirect-value="<%= bookmarks_url %>">
           <%= link_to "Add to list", kinder_garten_bookmarks_path(@kinder_garten), data: { turbo_method: :post, action: 'click->alert#showAlert' } %>
         </div>
       <% else %>
