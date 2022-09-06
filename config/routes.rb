@@ -25,5 +25,8 @@ Rails.application.routes.draw do
 
   get "job/fetch_id", to: "jobs#fetch_id"
 
+  get '/404', to: 'errors#not_found'
+  get '/500', to: 'errors#internal_server_error'
+
   mount Sidekiq::Web => '/sidekiq'
 end

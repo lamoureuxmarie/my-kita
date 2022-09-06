@@ -11,9 +11,23 @@
           <% end %>
         </div>
 
-        <div class="infos">
-          <h6><%= bookmark.kinder_garten.name %></h6>
-          <p><%= bookmark.kinder_garten.address %></p>
+        <div class="d-flex">
+          <div>
+            <%# <i class="<%= Bookmark::ICONS[bookmark.reminder.title]"></i>  %>
+            <i class="fa-solid fa-heart icon-status" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i>
+            <div class="dropdown-menu dropdown-menu-end rounded-pill" aria-labelledby="navbarDropdown">
+              <div class="d-flex div-icons">
+                <i class="fa-solid fa-envelope icon-status dropdown-item"></i>
+                <i class="fa-solid fa-phone icon-status dropdown-item"></i>
+                <i class="fa-solid fa-calendar icon-status dropdown-item"></i>
+                <i class="fa-solid fa-comment-dots icon-status dropdown-item"></i>
+              </div>
+            </div>
+          </div>
+          <div class="infos mt-1">
+            <h6><%= bookmark.kinder_garten.name %></h6>
+            <p><%= bookmark.kinder_garten.address %></p>
+          </div>
         </div>
 
         <div data-action="click->bookmark#showContent" class="text-center arrows">
