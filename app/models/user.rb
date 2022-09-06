@@ -7,6 +7,7 @@ class User < ApplicationRecord
   has_one :profile
   after_create :create_profile
   has_many :ratings
+  has_secure_token :telegram_token, length: 24
 
   def create_profile
     Profile.create!(user: self)

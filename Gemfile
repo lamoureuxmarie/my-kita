@@ -85,6 +85,18 @@ gem "cloudinary"
 # Geocoding
 gem "geocoder"
 
+# Debug
+gem "pry"
+
+# Send reminders by Telegran
+gem 'telegram-bot'
+
+# HTTParty
+gem "httparty"
+
+# Calendar
+gem "simple_calendar"
+
 # Pundit
 gem "pundit"
 

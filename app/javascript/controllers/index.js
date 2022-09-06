@@ -25,6 +25,9 @@ application.register("hello", HelloController)
 import MapController from "./map_controller"
 application.register("map", MapController)
 
+import ReminderController from "./reminder_controller"
+application.register("reminder", ReminderController)
+
 import SearchTaskController from "./search_task_controller"
 application.register("search-task", SearchTaskController)
 

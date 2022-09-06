@@ -19,6 +19,10 @@ class ProfilesController < ApplicationController
     end
   end
 
+  # Info box to ask user to register their phone number
+  # If new phone registered, update profile with new chat_id
+  # Only allow create and send reminder if user.profile.phone_number exists
+
   private
 
   def find_profile

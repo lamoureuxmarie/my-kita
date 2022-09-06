@@ -1,29 +1,37 @@
+# require 'telegram/bot'
+
 class RemindersController < ApplicationController
   before_action :find_reminder, only: %i[show edit update destroy]
   before_action :find_bookmark, only: %i[new create]
 
   def index
     @reminders = policy_scope(Reminder)
-    @reminders = Reminder.all
+    start_date = params.fetch(:due_date, Date.today).to_date
+    @reminders = Reminder.where(due_date: start_date.beginning_of_month.beginning_of_week..start_date.end_of_month.end_of_week)
   end
 
   def show
   end
 
   def new
-    authorize @reminder
+    authorize(Reminder)
     @reminder = Reminder.new
   end
 
   def create
-    authorize @reminder
     @reminder = Reminder.new(reminder_params)
     @reminder.bookmark = @bookmark
+    authorize @reminder
     if @reminder.save
+      SendTelegramMessageJob.perform_now(current_user.chat_id, @reminder) if current_user.chat_id.present?
       redirect_to reminders_path
     else
       render :new, notice: "Oops. Something went wrong..."
     end
+  end
+
+  def message
+    SendTelegramMessageJob.perform_now(current_user.chat_id, @reminder) if current_user.chat_id.present?
   end
 
   def edit
