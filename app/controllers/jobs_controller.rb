@@ -1,6 +1,8 @@
 class JobsController < ApplicationController
+  skip_before_action :authenticate_user!
+  skip_after_action :verify_authorized
+
   def fetch_id
-    # authorize @job
     FetchTelegramChatIdsJob.perform_now
     redirect_to bookmarks_path
   end
