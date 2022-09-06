@@ -2,7 +2,7 @@
   <div>
     <img src="<%= @kinder_garten.image_url %>" alt="Kita's picture" class="kita-image">
   </div>
-  <div class="container px-5">
+  <div class="container px-4">
     <h1><%= @kinder_garten.name %></h1>
     <div class="descriptions">
       <p><%= @kinder_garten.address %></p>
@@ -24,10 +24,17 @@
     </div>
     <div class="empty-div">
     </div>
-    <div class="white-div">
-      <div class="add-to-list-button" data-controller="alert">
-        <%= link_to "Add to list", kinder_garten_bookmarks_path(@kinder_garten), data: { turbo_method: :post, action: 'click->alert#showAlert' } %>
-      </div>
+    <div class="white-div d-flex align-items-center">
+      <% if current_user %>
+        <div class="add-to-list-button" data-controller="alert">
+          <%= link_to "Add to list", kinder_garten_bookmarks_path(@kinder_garten), data: { turbo_method: :post, action: 'click->alert#showAlert' } %>
+        </div>
+      <% else %>
+        <div class="p-3 bg-light border info-login">
+          To save this kita in your list, please
+          <%= link_to "Log In", new_user_session_path, class: "link-warning" %>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>
