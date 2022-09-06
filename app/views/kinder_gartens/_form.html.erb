@@ -1,8 +1,10 @@
-<div class="row">
-  <div class="col-xs-4">
-    <%= simple_form_for [kinder_garten, rating], data: { controller: "form-submit" } do |f| %>
-      <%= f.input :rating, collection: (1..5).to_a, input_html: {data: { controller: "star-rating", action: "click->form-submit#submit"} }  %>
-      <%= f.submit %>
+<div class="form-popup d-none" id="myForm" data-rating-target="form">
+  <h2>Your rating</h2>
+    <%= simple_form_for [kinder_garten, rating] do |f| %>
+      <%= f.input :rating, collection: (1..5).to_a, lable: "Rate your experience", class: "border" %>
+      <div class="d-flex justify-content-between">
+        <%= f.submit "Send your review", class: "btn btn-primary" %>
+        <button type="button" class="btn btn-secondary mb-4" data-action="click->rating#closeForm">Close rating</button>
+      </div>
     <% end %>
-  </div>
 </div>
