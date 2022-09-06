@@ -1,6 +1,6 @@
 <div class="container pt-5 reminders">
   <div class="pt-4 pb-4" data-controller="reminder">
-    <%= month_calendar(attribute: :due_date, events: @reminders) do |date, reminders| %>
+    <%= month_calendar(events: @reminders) do |date, reminders| %>
         <%= date.day %>
           <% reminders.each do |r| %>
             <% if r.present? %>

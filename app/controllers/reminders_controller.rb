@@ -7,7 +7,10 @@ class RemindersController < ApplicationController
   def index
     @reminders = policy_scope(Reminder)
     start_date = params.fetch(:due_date, Date.today).to_date
+    # Need to specify current_user
+    bookmark_ids = current_user.bookmarks.ids
     @reminders = Reminder.where(due_date: start_date.beginning_of_month.beginning_of_week..start_date.end_of_month.end_of_week)
+    @reminders = @reminders.select { |reminder| bookmark_ids.include?(reminder.bookmark_id) }
   end
 
   def show
