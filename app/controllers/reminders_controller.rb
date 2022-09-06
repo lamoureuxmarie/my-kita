@@ -34,6 +34,7 @@ class RemindersController < ApplicationController
   end
 
   def message
+    @reminder = Reminder.find(params[:id])
     SendTelegramMessageJob.perform_now(current_user.chat_id, @reminder) if current_user.chat_id.present?
   end
 
