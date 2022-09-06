@@ -27,7 +27,7 @@ class RemindersController < ApplicationController
     @reminder.bookmark = @bookmark
     authorize @reminder
     if @reminder.save
-      SendTelegramMessageJob.perform_now(current_user.chat_id, @reminder) if current_user.chat_id.present?
+      SendTelegramMessageJob.perform_later(current_user.chat_id, @reminder) if current_user.chat_id.present?
       redirect_to reminders_path
     else
       render :new, notice: "Oops. Something went wrong..."
@@ -36,7 +36,7 @@ class RemindersController < ApplicationController
 
   def message
     @reminder = Reminder.find(params[:id])
-    SendTelegramMessageJob.perform_now(current_user.chat_id, @reminder) if current_user.chat_id.present?
+    SendTelegramMessageJob.perform_later(current_user.chat_id, @reminder) if current_user.chat_id.present?
   end
 
   def edit
@@ -46,6 +46,7 @@ class RemindersController < ApplicationController
   def update
     authorize @reminder
     if @reminder.update(reminder_params)
+      SendTelegramMessageJob.perform_later(current_user.chat_id, @reminder) if current_user.chat_id.present?
       redirect_to bookmark_path(:bookmark_id), notice: "Updated successfully"
     else
       render :edit
