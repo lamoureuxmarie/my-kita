@@ -1,7 +1,9 @@
 class TemplatesController < ApplicationController
   before_action :find_template, only: %i[show edit destroy update]
+  skip_after_action :verify_authorized
 
   def index
+    @templates = policy_scope(Template)
     @templates = Template.all
   end
 
@@ -14,6 +16,7 @@ class TemplatesController < ApplicationController
 
   def create
     @template = Template.new(template_params)
+    authorize @template
     @template.save
     if @template.save
       redirect_to template_path(@template)
@@ -26,6 +29,7 @@ class TemplatesController < ApplicationController
   end
 
   def update
+    authorize @template
     if @template.update(template_params)
       redirect_to template_path(@template), notice: "Updated successfully"
     else
@@ -34,6 +38,7 @@ class TemplatesController < ApplicationController
   end
 
   def destroy
+    authorize @template
     @template.destroy
     redirect_to templates_path, status: :see_other
   end

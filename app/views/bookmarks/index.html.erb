@@ -65,7 +65,9 @@
           </div>
           <% if current_user.chat_id.present? %>
           <div class="buttons d-flex justify-content-between">
-            <button class="btn btn-primary">Contact Kita</button>
+            <%= link_to new_bookmark_template_path(bookmark) do%>
+              <button class="btn btn-primary">Contact Kita</button>
+            <% end %>
             <%= link_to new_bookmark_reminder_path(bookmark) do%>
               <button class="btn btn-secondary">Set reminder</button>
             <% end %>
@@ -75,6 +77,7 @@
             <div class="mt-3 p-3 bg-light border info-card">
               To receive reminders via Telegram, send <strong><%= current_user.telegram_token %></strong> to
               <%= link_to "our bot", "https://t.me/my_kita_bot", target: "_blank", class: "link-warning" %>
+              <br>
               <%= link_to "Confirm", job_fetch_id_path %>
             </div>
           <% end %>
