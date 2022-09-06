@@ -103,4 +103,4 @@ gem "pundit"
 # PG Search
 gem "pg_search"
 
-
+gem "pry"

@@ -16,6 +16,9 @@ application.register("bookmark", BookmarkController)
 import FlatpickrController from "./flatpickr_controller"
 application.register("flatpickr", FlatpickrController)
 
+import FormSubmitController from "./form_submit_controller"
+application.register("form-submit", FormSubmitController)
+
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
 
@@ -27,3 +30,6 @@ application.register("reminder", ReminderController)
 
 import SearchTaskController from "./search_task_controller"
 application.register("search-task", SearchTaskController)
+
+import StarRatingController from "./star_rating_controller"
+application.register("star-rating", StarRatingController)
