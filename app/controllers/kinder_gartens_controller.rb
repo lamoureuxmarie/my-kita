@@ -28,6 +28,9 @@ class KinderGartensController < ApplicationController
   def show
     # authorize @kinder_garten
     @kinder_garten = KinderGarten.find(params[:id])
+    @rating = Rating.new
+    @ratings = Rating.rating_by_kita(@kinder_garten)
+    @ratings_count = Rating.rating_count(@kinder_garten)
     # @kinder_garten.pedagogical_focus.join(",")
   end
 end
