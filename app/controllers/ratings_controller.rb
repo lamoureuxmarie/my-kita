@@ -6,8 +6,8 @@ class RatingsController < ApplicationController
   end
 
   def create
-    authorize @rating
     @rating = Rating.new(rating_params)
+    authorize @rating
     @rating.user = current_user
     @kinder_garten = KinderGarten.find(params[:kinder_garten_id])
     @rating.kinder_garten = @kinder_garten

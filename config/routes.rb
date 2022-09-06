@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
   resources :kinder_gartens, only: %i[index show] do
     resources :bookmarks, only: %i[new create]
-    resources :ratings, only: :create
+    resources :ratings, only: %i[new create]
   end
 
   resources :profiles, only: %i[show edit update]

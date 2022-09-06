@@ -23,7 +23,20 @@
       <p><%= @kinder_garten.thematic_focus %></p>
     </div>
     <div>
-      <%= render 'form', kinder_garten: @kinder_garten, rating: @rating %>
+      <h6 class="review-count"><%= @ratings_count %> Reviews</h6>
+      <div class="d-flex justify-content-between align-items-center mb-4">
+        <div class="ratings">
+            <i class="fa fa-star <%= @ratings >= 1 ? "rating-color" : "" %>"></i>
+            <i class="fa fa-star <%= @ratings >= 2 ? "rating-color" : "" %>"></i>
+            <i class="fa fa-star <%= @ratings >= 3 ? "rating-color" : "" %>"></i>
+            <i class="fa fa-star <%= @ratings >= 4 ? "rating-color" : "" %>"></i>
+            <i class="fa fa-star <%= @ratings >= 5 ? "rating-color" : "" %>"></i>
+        </div>
+        <div class="pt-2">
+          <h6><%= link_to "Add a rating", new_kinder_garten_rating_path(@kinder_garten), data: { turbo_method: :post, action: 'click->alert#showAlert' }, class: 'add-rate' %></h6>
+        </div>
+      </div>
+      <%# <%= render 'form', kinder_garten: @kinder_garten, rating: @rating %>
     </div>
     <div class="empty-div">
     </div>
