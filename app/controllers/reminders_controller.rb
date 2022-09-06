@@ -3,6 +3,7 @@
 class RemindersController < ApplicationController
   before_action :find_reminder, only: %i[show edit update destroy]
   before_action :find_bookmark, only: %i[new create]
+  skip_after_action :verify_authorized, only: %i[message]
 
   def index
     @reminders = policy_scope(Reminder)
@@ -34,6 +35,7 @@ class RemindersController < ApplicationController
   end
 
   def message
+    @reminder = Reminder.find(params[:id])
     SendTelegramMessageJob.perform_now(current_user.chat_id, @reminder) if current_user.chat_id.present?
   end
 
