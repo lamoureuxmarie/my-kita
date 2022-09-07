@@ -1,20 +1,22 @@
 .alert {
+  width: 250px;
   position: fixed;
   bottom: 16px;
   right: 16px;
   z-index: 1000;
-  background-color: #FFE23F;
-  border-radius: 5px;
-  border-color: #FFE23F;
+  background-color: #ffef96;
+  border: 2px solid #FFE23F;
   color: #01001A;
 }
 
 .alert-popup {
+  width: 250px;
   position: fixed;
   bottom: 16px;
   right: 16px;
   z-index: 1000;
-  background-color: #FFE23F;
+  background-color: #ffef96;
+  border: 2px solid #FFE23F;
 }
 
 .swal2-popup {

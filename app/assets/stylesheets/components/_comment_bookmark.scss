@@ -4,14 +4,15 @@
 
 .fa-pen-to-square {
   font-size: 24px;
-  color:#01001A;
   transition: all 0.25s ease-in;
+  color: #04022d;
 }
 
 .fa-pen-to-square:hover {
-  font-size: 26px;
+  font-size: 25px;
 }
 
-.input-group {
-  width: 100%;
+.edit_bookmark textarea {
+  width: 90%;
+  border-radius: 10px;
 }

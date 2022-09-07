@@ -3,7 +3,6 @@ class TemplatesController < ApplicationController
   skip_after_action :verify_authorized
 
   def index
-
     @templates = policy_scope(Template)
     @templates = Template.where(user: current_user)
     @kita_email = params[:email]
