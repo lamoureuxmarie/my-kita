@@ -4,10 +4,11 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   has_many :bookmarks
-  has_many :reminders, through: :bookmarks  
+  has_many :reminders, through: :bookmarks
   has_one :profile
   after_create :create_profile
   has_many :ratings
+  has_many :templates
   has_secure_token :telegram_token, length: 24
 
   def create_profile

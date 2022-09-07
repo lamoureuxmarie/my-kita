@@ -1,0 +1,4 @@
+meta_product_name: "My Kita"
+meta_title: "My Kita - Make kindergarten happen"
+meta_description: "My Kita is a search engine and task manager for parents looking for a kindergarten in Berlin"
+meta_image: "og-image.jpg" # should exist in `app/assets/images/`
