@@ -81,7 +81,7 @@
           </div>
           <% if current_user.chat_id.present? %>
           <div class="buttons d-flex justify-content-between">
-            <%= link_to new_bookmark_template_path(bookmark) do%>
+            <%= link_to templates_path(email: bookmark.kinder_garten.email) do%>
               <button class="btn btn-primary">Contact Kita</button>
             <% end %>
             <%= link_to new_bookmark_reminder_path(bookmark) do%>
