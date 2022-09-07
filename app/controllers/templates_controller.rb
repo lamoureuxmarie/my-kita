@@ -16,11 +16,10 @@ class TemplatesController < ApplicationController
 
   def create
     @template = Template.new(template_params)
-    @template.bookmark = @bookmark
+    @template.user = current_user
     authorize @template
-    @template.save
     if @template.save
-      redirect_to template_path(@template)
+      redirect_to template_path
     else
       render :new, notice: "Oops. Something went wrong..."
     end

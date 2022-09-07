@@ -25,8 +25,10 @@
             </div>
           </div>
           <div class="infos mt-1">
+           <%= link_to kinder_garten_path(bookmark.kinder_garten) do %>
             <h6><%= bookmark.kinder_garten.name %></h6>
             <p><%= bookmark.kinder_garten.address %></p>
+           <% end %>
           </div>
         </div>
 

@@ -1,4 +1,4 @@
 class Template < ApplicationRecord
   validates :title, :content, presence: true
-  belongs_to :bookmark
+  belongs_to :user
 end
