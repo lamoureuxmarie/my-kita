@@ -13,6 +13,9 @@ application.register("bookmark-comment", BookmarkCommentController)
 import BookmarkController from "./bookmark_controller"
 application.register("bookmark", BookmarkController)
 
+import ConfirmController from "./confirm_controller"
+application.register("confirm", ConfirmController)
+
 import FlatpickrController from "./flatpickr_controller"
 application.register("flatpickr", FlatpickrController)
 
