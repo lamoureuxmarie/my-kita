@@ -31,6 +31,7 @@ class KinderGartensController < ApplicationController
     @rating = Rating.new
     @ratings = Rating.rating_by_kita(@kinder_garten)
     @ratings_count = Rating.rating_count(@kinder_garten)
+    # @kita_borough = params[:borough]
     # @kinder_garten.pedagogical_focus.join(",")
   end
 end
