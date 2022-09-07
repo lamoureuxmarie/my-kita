@@ -1,5 +1,4 @@
 .btn {
-  color: #01001A !important;
   font-weight: 600;
   font-size: 16px;
   text-align: center;
@@ -11,6 +10,7 @@
 .btn-primary {
   background-color: #FFE23F;
   border: 1px solid #FFE23F !important;
+  color: #01001A !important;
 }
 
 .btn-primary:hover {
@@ -21,9 +21,21 @@
 .btn-secondary {
   background-color: #F5F1E9;
   border: 1px solid #F5F1E9 !important;
+  color: #01001A !important;
 }
 
 .btn-secondary:hover {
   background-color: #eae6dd;
   border: 1px solid #eae6dd !important;
+}
+
+.btn-info {
+  background-color: #04022d ;
+  border: 1px solid #04022d !important;
+  color: #fff !important;
+}
+
+.btn-info:hover {
+  background-color: #090646 ;
+  border: 1px solid #090646 !important;
 }

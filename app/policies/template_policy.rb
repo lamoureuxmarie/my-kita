@@ -13,8 +13,8 @@ class TemplatePolicy < ApplicationPolicy
   end
 
   def create?
-    # record.user == user
-    true
+    record.user == user
+    # true
   end
 
   def edit?
@@ -22,12 +22,12 @@ class TemplatePolicy < ApplicationPolicy
   end
 
   def update?
-    # record.user == user
-    true
+    record.user == user
+    # true
   end
 
   def destroy?
-    # record.user == user
-    true
+    record.user == user
+    # true
   end
 end
