@@ -5,6 +5,7 @@ class TemplatesController < ApplicationController
   def index
     @templates = policy_scope(Template)
     @templates = Template.all
+    @kita_email = params[:email]
   end
 
   def show

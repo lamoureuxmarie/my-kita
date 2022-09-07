@@ -2,13 +2,15 @@
   <h1>Your templates</h1>
   <br>
   <% @templates.each do |template| %>
-    <h6><%= template.title %></h6>
-    <p><%= truncate(template.content) %></p>
-    <div class="links mt-3">
-      <a href="mailto:contact@my-kita.xyz?subject=<% template.title %>&body=<% template.content %>" target=“_blank” rel=“noopener” class="btn btn-secondary">Send</a>
-      <%= link_to template_path(template), data: {turbo_method: :delete, turbo_confirm: "Are you sure you want to DELETE you template?"} do %>
-        <button>Delete</button>
-      <% end %>
+    <div class="bookmark-card">
+      <h6><%= template.title %></h6>
+      <p><%= truncate(template.content) %></p>
+        <div class="links mt-3">
+          <a href="mailto:<%= @kita_email %>?subject=<%= template.title %>&body=<%= template.content %>" target=“_blank” rel=“noopener” class="btn btn-primary">Send</a>
+          <%= link_to template_path(template), data: {turbo_method: :delete, turbo_confirm: "Are you sure you want to DELETE you template?"} do %>
+            <i class="fa-solid fa-trash"></i>
+          <% end %>
+        </div>
     </div>
   <% end %>
 
