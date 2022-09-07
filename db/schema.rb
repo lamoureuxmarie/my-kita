@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_09_06_160246) do
+ActiveRecord::Schema[7.0].define(version: 2022_09_07_075626) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -109,6 +109,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_06_160246) do
     t.text "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "user_id", null: false
+    t.index ["user_id"], name: "index_templates_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -133,4 +135,5 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_06_160246) do
   add_foreign_key "ratings", "kinder_gartens"
   add_foreign_key "ratings", "users"
   add_foreign_key "reminders", "bookmarks"
+  add_foreign_key "templates", "users"
 end
