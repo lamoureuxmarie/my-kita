@@ -74,22 +74,22 @@ CSV.foreach(filepath, headers: :first_row) do |row|
     new_kita.image_url = ActionController::Base.helpers.image_path("photos/music#{rand(3)}.jpg")
   elsif new_kita.image_url == "https://kita-navigator.berlin.de/fallback_einrichtung.jpg" && new_kita.pedagogical_focus.include?("Natur- und Umweltpädagogik") || new_kita.thematic_focus.include?("Natur- und Umweltpädagogik")
     new_kita.image_url = ActionController::Base.helpers.image_path("photos/nature#{rand(3)}.jpg")
-  elsif new_kita.image_url == "https://kita-navigator.berlin.de/fallback_einrichtung.jpg" && new_kita.pedagogical_focus.include?("Gesundheit") || new_kita.thematic_focus.include?("Gesundheit")
-    new_kita.image_url = ActionController::Base.helpers.image_path('photos/health.jpg')
   elsif new_kita.image_url == "https://kita-navigator.berlin.de/fallback_einrichtung.jpg" && new_kita.pedagogical_focus.include?("Montessori-Pädagogik")
     new_kita.image_url = ActionController::Base.helpers.image_path('photos/girls.jpg')
   elsif new_kita.image_url == "https://kita-navigator.berlin.de/fallback_einrichtung.jpg" && new_kita.pedagogical_focus.include?("Körper und Bewegung") || new_kita.thematic_focus.include?("Körper und Bewegung")
-    new_kita.image_url = ActionController::Base.helpers.image_path('photos/mouvement.jpg')
+    new_kita.image_url = ActionController::Base.helpers.image_path("photos/mouvement#{rand(4)}.jpg")
   elsif new_kita.image_url == "https://kita-navigator.berlin.de/fallback_einrichtung.jpg" && new_kita.pedagogical_focus.include?("Offene-Arbeit")
     new_kita.image_url = ActionController::Base.helpers.image_path('photos/group.jpg')
   elsif new_kita.image_url == "https://kita-navigator.berlin.de/fallback_einrichtung.jpg" && new_kita.pedagogical_focus.include?("EEC-Ansatz") || new_kita.pedagogical_focus.include?("Early Excellence-Ansatz") || new_kita.pedagogical_focus.include?("EEC (Early Excellence)")
     new_kita.image_url = ActionController::Base.helpers.image_path("photos/counting.jpg")
   elsif new_kita.image_url == "https://kita-navigator.berlin.de/fallback_einrichtung.jpg" && new_kita.pedagogical_focus.include?("Sprache") || new_kita.pedagogical_focus.include?("altagsintegrierte Sprachbildung")
     new_kita.image_url = ActionController::Base.helpers.image_path("photos/language.jpg")
-  elsif new_kita.image_url == "https://kita-navigator.berlin.de/fallback_einrichtung.jpg" && new_kita.pedagogical_focus.include?("Integration von Kindern mit Behinderung") || new_kita.thematic_focus.include?("Integration von Kindern mit Behinderung")
-    new_kita.image_url = ActionController::Base.helpers.image_path("photos/dis.jpg")
+  elsif new_kita.image_url == "https://kita-navigator.berlin.de/fallback_einrichtung.jpg" && new_kita.pedagogical_focus.include?("Gesundheit") || new_kita.thematic_focus.include?("Gesundheit")
+    new_kita.image_url = ActionController::Base.helpers.image_path('photos/health.jpg')
   elsif new_kita.image_url == "https://kita-navigator.berlin.de/fallback_einrichtung.jpg" && new_kita.pedagogical_focus.include?("Situationsansatz") || new_kita.pedagogical_focus.empty?
     new_kita.image_url = ActionController::Base.helpers.image_path("photos/craft#{rand(1..5)}.jpg")
+  elsif new_kita.image_url == "https://kita-navigator.berlin.de/fallback_einrichtung.jpg" && new_kita.pedagogical_focus.include?("Integration von Kindern mit Behinderung") || new_kita.thematic_focus.include?("Integration von Kindern mit Behinderung")
+    new_kita.image_url = ActionController::Base.helpers.image_path("photos/dis.jpg")
   else
     new_kita.image_url
   end
