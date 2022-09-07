@@ -2,7 +2,7 @@
   <div>
     <img src="<%= @kinder_garten.image_url %>" alt="Kita's picture" class="kita-image">
   </div>
-  <div class="container px-4">
+  <div class="container px-4 d-flex flex-column">
     <h1><%= @kinder_garten.name %></h1>
     <div class="descriptions">
       <p><%= @kinder_garten.address %></p>
@@ -32,16 +32,18 @@
             <i class="fa fa-star <%= @ratings >= 4 ? "rating-color" : "" %>"></i>
             <i class="fa fa-star <%= @ratings >= 5 ? "rating-color" : "" %>"></i>
         </div>
-        <div class="pt-2">
-          <button class="btn btn-secondary" data-action="click->rating#openForm">Add rating</button>
-          <%# <%= link_to "Add rating", data: { action: 'click->rating#openForm' } %>
-        </div>
+        <% if user_signed_in? %>
+          <div class="pt-2">
+            <button class="btn btn-secondary" data-action="click->rating#openForm">Add rating</button>
+            <%# <%= link_to "Add rating", data: { action: 'click->rating#openForm' } %>
+          </div>
+        <% end %>
       </div>
       <%= render 'form', kinder_garten: @kinder_garten, rating: @rating %>
     </div>
     <div class="empty-div">
     </div>
-    <div class="white-div d-flex align-items-center">
+    <div class="white-div">
       <% if current_user %>
         <div class="add-to-list-button" data-controller="alert" data-alert-redirect-url-value="<%= bookmarks_url %>">
           <%= link_to "Add to list", kinder_garten_bookmarks_path(@kinder_garten), data: { turbo_method: :post, action: 'click->alert#showAlert' } %>
