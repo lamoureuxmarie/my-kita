@@ -3,9 +3,16 @@ class Bookmark < ApplicationRecord
   belongs_to :user
   has_many :reminders
 
-  # ICONS = {
-  #   "Send Email" => "fa-solid fa-envelope icon-status";
-  #   "Make a call" => "fa-solid fa-phone icon-status";
+  enum :status, [:liked, :called, :schedulled, :emailed], default: :liked
 
-  # }
+  ICONS = {
+    liked: "fa-heart",
+    called: "fa-phone",
+    schedulled: "fa-calendar",
+    emailed: "fa-envelope"
+  }
+
+  def icon
+    ICONS[status.to_sym]
+  end
 end

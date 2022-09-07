@@ -1,7 +1,7 @@
 <div class="bookmark-ctn container">
   <% @bookmarks.each do |bookmark| %>
 
-    <div data-controller="bookmark">
+    <div data-controller="bookmark icon">
 
       <div class="bookmark-card">
 
@@ -10,17 +10,21 @@
               <i class="fa-solid fa-xmark"></i>
           <% end %>
         </div>
-
         <div class="d-flex">
           <div>
             <%# <i class="<%= Bookmark::ICONS[bookmark.reminder.title]"></i>  %>
-            <i class="fa-solid fa-heart icon-status" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i>
-            <div class="dropdown-menu dropdown-menu-end rounded-pill" aria-labelledby="navbarDropdown">
+            <i class="fa-solid <%= bookmark.icon %> icon-status" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-icon-target="iconDrop"></i>
+            <div class="dropdown-menu dropdown-menu-end rounded-pill" aria-labelledby="navbarDropdown" data-icon-target="dropDown">
               <div class="d-flex div-icons">
-                <i class="fa-solid fa-envelope icon-status dropdown-item"></i>
-                <i class="fa-solid fa-phone icon-status dropdown-item"></i>
-                <i class="fa-solid fa-calendar icon-status dropdown-item"></i>
-                <i class="fa-solid fa-comment-dots icon-status dropdown-item"></i>
+                <%= link_to change_status_bookmark_path(bookmark, status: :emailed), remote: true, data: {turbo_method: :patch} do %>
+                  <i class="fa-solid fa-envelope icon-status" data-action="click->icon#changeIcon" data-icon-target="envelopeIcon"></i>
+                <% end %>
+                <%= link_to change_status_bookmark_path(bookmark, status: :schedulled), remote: true, data: {turbo_method: :patch} do %>
+                  <i class="fa-solid fa-calendar icon-status" data-action="click->icon#changeIcon" data-icon-target="envelopeIcon"></i>
+                <% end %>
+                <%= link_to change_status_bookmark_path(bookmark, status: :called), remote: true, data: {turbo_method: :patch} do %>
+                  <i class="fa-solid fa-phone icon-status" data-action="click->icon#changeIcon" data-icon-target="envelopeIcon"></i>
+                <% end %>
               </div>
             </div>
           </div>

@@ -22,6 +22,9 @@ application.register("form-submit", FormSubmitController)
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
 
+import IconController from "./icon_controller"
+application.register("icon", IconController)
+
 import MapController from "./map_controller"
 application.register("map", MapController)
 
