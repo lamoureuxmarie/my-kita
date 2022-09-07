@@ -1,13 +1,14 @@
-<div class="container padding-top">
-  <div class="d-flex align-items-center flex-column">
-    <div class="col-sm-12 col-lg-6 pt-5">
-      <h1 class="text-center pt-5">New email template</h1>
-        <%= simple_form_for(@template) do |f| %>
-          <%= f.input :title, label: "Subject" %>
-          <%= f.input :content %>
-          <%= f.submit class: 'button button-secondary'%>
-        <% end %>
-        <a href=“mailto:contact@my-kita.xyz?subject=New%20Enquiry&body=Hello" target=“_blank” rel=“noopener noreferrer”>Contact Kita</a>
+<div class="container pt-5">
+  <div class="d-flex temp-form flex-column pt-5">
+    <div class="card-login-signup-form col-sm-12 col-lg-6 mb-3" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= asset_path 'login-banner.jpg' %>)"></div>
+      <div class="col-sm-12 col-lg-6">
+        <h1 class="text-center pt-3">New email template</h1>
+          <%= simple_form_for(@template) do |f| %>
+            <%= f.input :title, label: "Subject" %>
+            <%= f.input :content %>
+            <%= f.submit class: 'btn btn-primary'%>
+          <% end %>
+          <%= link_to "Back to templates", templates_path, class: "btn btn-secondary mt-2"%>
     </div>
   </div>
 </div>
