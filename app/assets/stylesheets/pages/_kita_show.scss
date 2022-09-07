@@ -6,7 +6,7 @@
   font-size: 16px;
   text-align: center;
   border-radius: 100px;
-  width: 300px;
+  width: 86%;
   height: 42px;
   position: absolute;
   bottom: 40px;
@@ -29,16 +29,21 @@
 
 .empty-div {
   height: 100px;
+  margin-left: 0px;
 }
 
 .white-div {
-  background: white;
+  background: #FFFEFB;
   position: fixed;
   bottom: 0px;
-  width: 100%;
+  width: 102%;
   height: 115px;
+  margin-right: 0px;
+  padding-top: 10px;
 }
 
 .info-login {
-  width: 300px;
+  width: 85.6%;
+  margin: 0 !important;
+  text-align: center;
 }
