@@ -1,12 +1,13 @@
 <div class="container pt-5">
-  <div class="d-flex align-items-center flex-column">
-    <div class="col-sm-12 col-lg-6">
-      <h1 class="text-center pt-5">Update template</h1>
-        <%= simple_form_for(@template) do |f| %>
-          <%= f.input :title%>
-          <%= f.input :content %>
-          <%= f.submit class: 'button secondary-button'%>
-        <% end %>
+  <div class="d-flex temp-form flex-column pt-5">
+    <div class="card-login-signup-form col-sm-12 col-lg-6 mb-3" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= asset_path 'login-banner.jpg' %>)"></div>
+      <div class="col-sm-12 col-lg-6">
+        <h1 class="text-center pt-3">Edit template</h1>
+          <%= simple_form_for(@template) do |f| %>
+            <%= f.input :title%>
+            <%= f.input :content %>
+            <%= f.submit class: 'btn btn-primary mt-1'%>
+          <% end %>
     </div>
   </div>
 </div>
