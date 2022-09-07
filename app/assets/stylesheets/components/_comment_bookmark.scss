@@ -2,21 +2,16 @@
   display: none;
 }
 
-.input-group button {
-  position: absolute;
-  right: 5px;
-  top: 15px;
-  background: transparent;
-  background-color: none !important;
-  border: none;
-}
-
 .fa-pen-to-square {
-  font-size: 20px;
-  color:#01001A;
-}
-
-.fa-circle-check {
   font-size: 24px;
   color:#01001A;
+  transition: all 0.25s ease-in;
+}
+
+.fa-pen-to-square:hover {
+  font-size: 26px;
+}
+
+.input-group {
+  width: 100%;
 }

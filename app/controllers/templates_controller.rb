@@ -3,8 +3,9 @@ class TemplatesController < ApplicationController
   skip_after_action :verify_authorized
 
   def index
+
     @templates = policy_scope(Template)
-    @templates = Template.all
+    @templates = Template.where(user: current_user)
     @kita_email = params[:email]
   end
 
@@ -20,7 +21,7 @@ class TemplatesController < ApplicationController
     @template.user = current_user
     authorize @template
     if @template.save
-      redirect_to template_path
+      redirect_to templates_path
     else
       render :new, notice: "Oops. Something went wrong..."
     end

@@ -63,18 +63,16 @@
             <% end %>
           </div>
           <div data-controller="bookmark-comment">
-            <h6>Comment</h6>
-              <div class="d-flex justify-content-between">
-                  <p><%= bookmark.comment %></p>
-                  <i class="fa-solid fa-pen-to-square" data-action="click->bookmark-comment#showForm"></i>
-              </div>
+            <div class="d-flex justify-content-start">
+              <i class="fa-solid fa-pen-to-square" data-action="click->bookmark-comment#showForm"></i>
+              <h6 class="m-2">Comment</h6>
+            </div>
+              <p><%= bookmark.comment %></p>
             <div class="d-none" data-bookmark-comment-target="input">
               <div class="input-group">
                 <%= simple_form_for bookmark do |f| %>
-                  <%= f.input :comment, as: :text, data: { action: "submit->bookmark-comment#hideForm"} %>
-                  <%= button_tag type: 'submit' do %>
-                    <i class="fa-solid fa-circle-check"></i>
-                  <% end %>
+                  <%= f.input :comment, as: :text, data: { action: "submit->bookmark-comment#hideForm"}, class: 'col-8' %>
+                  <%= f.submit "Edit", class: 'btn btn-secondary float-end' %>
                 <% end %>
               </div>
             </div>
@@ -101,7 +99,7 @@
               <%= link_to "our bot", "https://t.me/my_kita_bot", target: "_blank", class: "link-warning" %>
               <br>
               <br>
-              <%= link_to "Confirm", job_fetch_id_path, class: "btn btn-primary" %>
+              <%= link_to "Confirm", job_fetch_id_path, class: "btn btn-info" %>
             </div>
           <% end %>
         </div>
