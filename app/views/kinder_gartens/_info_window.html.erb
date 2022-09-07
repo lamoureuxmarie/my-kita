@@ -1,6 +1,6 @@
 <%= link_to kinder_garten_path(kinder_garten) do %>
   <div class="card-preview">
-    <img src="https://images.pexels.com/photos/3913426/pexels-photo-3913426.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" />
+    <img src="<%= kinder_garten.image_url %>" />
     <div class="card-preview-infos">
       <h2><%= kinder_garten.name %></h2>
       <p><%= kinder_garten.address %></p>
