@@ -10,7 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_09_07_075626) do
+ActiveRecord::Schema[7.0].define(version: 2022_09_07_121955) do
+
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -43,12 +44,12 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_07_075626) do
   end
 
   create_table "bookmarks", force: :cascade do |t|
-    t.string "status"
     t.text "comment"
     t.bigint "kinder_garten_id", null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "status"
     t.index ["kinder_garten_id"], name: "index_bookmarks_on_kinder_garten_id"
     t.index ["user_id"], name: "index_bookmarks_on_user_id"
   end

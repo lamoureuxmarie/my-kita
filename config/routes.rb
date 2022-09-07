@@ -14,7 +14,13 @@ Rails.application.routes.draw do
 
   resources :bookmarks, only: %i[index show edit update destroy] do
     resources :reminders, only: %i[new create]
+
+    member do
+      patch :change_status
+    end
+
     resources :templates, only: %i[new create]
+
   end
 
   resources :reminders, only: %i[index show edit update destroy]
@@ -24,6 +30,8 @@ Rails.application.routes.draw do
   post "reminder/message", to: "reminders#message"
 
   get "job/fetch_id", to: "jobs#fetch_id"
+
+
 
   get '/404', to: 'errors#not_found'
   get '/500', to: 'errors#internal_server_error'

@@ -27,4 +27,8 @@ class BookmarkPolicy < ApplicationPolicy
   def destroy?
     record.user == user
   end
+
+  def change_status?
+    true
+  end
 end

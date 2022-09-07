@@ -5,7 +5,6 @@ export default class extends Controller {
   static targets = ['content', 'up', 'down']
 
   connect() {
-    console.log(this.contentTarget)
   }
 
   showContent() {
