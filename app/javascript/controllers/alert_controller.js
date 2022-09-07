@@ -5,11 +5,9 @@ import Swal from 'sweetalert2'
 export default class extends Controller {
   static values = { redirectUrl: String}
   connect() {
-    console.log('Controller connected', this.redirectUrlValue)
   }
 
   showAlert() {
-    console.log('Hello from showAlert')
     Swal.fire({
       imageUrl: 'https://i.ibb.co/Jt71fBz/sun.png',
       imageWidth: 80,

@@ -1,5 +1,5 @@
 class BookmarksController < ApplicationController
-  before_action :find_bookmark, only: %i[show edit update destroy]
+  before_action :find_bookmark, only: %i[show edit update destroy change_status]
 
   def index
     @bookmarks = policy_scope(Bookmark)
@@ -26,6 +26,7 @@ class BookmarksController < ApplicationController
     @kinder_garten = KinderGarten.find(params[:kinder_garten_id])
     @bookmark.kinder_garten = @kinder_garten
     @bookmark.save
+    @bookmark.liked!
   end
 
   def edit
@@ -45,6 +46,13 @@ class BookmarksController < ApplicationController
     authorize @bookmark
     @bookmark.destroy
     redirect_to bookmarks_path, status: :see_other
+  end
+
+  def change_status
+    # Dynamic methodcalling
+    authorize @bookmark
+    @bookmark.public_send("#{params[:status]}!")
+    # @bookmark.emailed!
   end
 
   private
