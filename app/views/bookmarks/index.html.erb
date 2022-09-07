@@ -11,9 +11,25 @@
           <% end %>
         </div>
 
-        <div class="infos">
-          <h6><%= bookmark.kinder_garten.name %></h6>
-          <p><%= bookmark.kinder_garten.address %></p>
+        <div class="d-flex">
+          <div>
+            <%# <i class="<%= Bookmark::ICONS[bookmark.reminder.title]"></i>  %>
+            <i class="fa-solid fa-heart icon-status" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i>
+            <div class="dropdown-menu dropdown-menu-end rounded-pill" aria-labelledby="navbarDropdown">
+              <div class="d-flex div-icons">
+                <i class="fa-solid fa-envelope icon-status dropdown-item"></i>
+                <i class="fa-solid fa-phone icon-status dropdown-item"></i>
+                <i class="fa-solid fa-calendar icon-status dropdown-item"></i>
+                <i class="fa-solid fa-comment-dots icon-status dropdown-item"></i>
+              </div>
+            </div>
+          </div>
+          <div class="infos mt-1">
+           <%= link_to kinder_garten_path(bookmark.kinder_garten) do %>
+            <h6><%= bookmark.kinder_garten.name %></h6>
+            <p><%= bookmark.kinder_garten.address %></p>
+           <% end %>
+          </div>
         </div>
 
         <div data-action="click->bookmark#showContent" class="text-center arrows">
@@ -65,16 +81,21 @@
           </div>
           <% if current_user.chat_id.present? %>
           <div class="buttons d-flex justify-content-between">
-            <button class="btn btn-primary">Contact Kita</button>
+            <%= link_to new_bookmark_template_path(bookmark) do%>
+              <button class="btn btn-primary">Contact Kita</button>
+            <% end %>
             <%= link_to new_bookmark_reminder_path(bookmark) do%>
               <button class="btn btn-secondary">Set reminder</button>
             <% end %>
           </div>
           <% else %>
-            <button class="btn btn-primary">Contact Kita</button>
+            <%= link_to templates_path do%>
+              <button class="btn btn-primary">Contact Kita</button>
+            <% end %>
             <div class="mt-3 p-3 bg-light border info-card">
               To receive reminders via Telegram, send <strong><%= current_user.telegram_token %></strong> to
               <%= link_to "our bot", "https://t.me/my_kita_bot", target: "_blank", class: "link-warning" %>
+              <br>
               <%= link_to "Confirm", job_fetch_id_path %>
             </div>
           <% end %>

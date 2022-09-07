@@ -108,6 +108,11 @@ CSV.foreach(filepath, headers: :first_row) do |row|
                               closing_time: row['closing_time'],
                               image_url: row['image_url'])
 
+  if new_kita.image_url == "https://kita-navigator.berlin.de/fallback_einrichtung.jpg" && new_kita.pedagogical_focus.include?("Situationsansatz")
+    new_kita.image_url = "https://images.pexels.com/photos/8613089/pexels-photo-8613089.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+  else
+    new_kita.image_url
+  end
   new_kita.pedagogical_focus = translatee(new_kita.pedagogical_focus)
   # Need to run the method as many times as there are words in the string
   new_kita.thematic_focus = translatee(new_kita.thematic_focus)
