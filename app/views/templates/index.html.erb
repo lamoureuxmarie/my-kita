@@ -1,5 +1,5 @@
 <div class="container pt-5">
-  <h1 class="pt-5">Email templates</h1>
+  <h1 class="pt-5 text-center">Email templates</h1>
   <br>
   <% @templates.each do |template| %>
     <div class="bookmark-card">
@@ -20,7 +20,7 @@
   <% end %>
 
   <%= link_to new_template_path do%>
-    <button class="btn btn-secondary mt-5">New Template</button>
+    <button class="btn btn-primary mt-5 btn-width">New Template</button>
   <% end %>
-    <%= link_to "Back to Bookmarks", bookmarks_path, class: "btn btn-primary mt-5"%>
+    <%= link_to "Back to Bookmarks", bookmarks_path, class: "btn btn-secondary btn-width"%>
 </div>
