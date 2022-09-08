@@ -9,6 +9,7 @@ export default class extends Controller {
   }
 
   hideForm() {
+    // console.log(this.textTarget)
     this.inputTarget.classList.add('d-none')
   }
 }
