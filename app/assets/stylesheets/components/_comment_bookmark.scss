@@ -1,3 +1,9 @@
+.user-comment {
+  background-color: #f8f9fa;
+  margin-top: 10px;
+  border-radius: 10px 10px 0 10px;
+}
+
 .bookmark_comment label {
   display: none;
 }
@@ -15,4 +21,5 @@
 .edit_bookmark textarea {
   width: 90%;
   border-radius: 10px;
+  width: 100%;
 }
