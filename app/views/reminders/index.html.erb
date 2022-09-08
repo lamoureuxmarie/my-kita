@@ -15,13 +15,20 @@
                   <h6><%= reminder.title %></h6>
                   <i class="fa-solid fa-xmark" data-action="click->reminder#hideContent"></i>
                 </div>
+                <div class="reminder-kita-info">
+                  <p><%= reminder.bookmark.kinder_garten.name %>
+                  <br>
+                  <%= reminder.bookmark.kinder_garten.address %></p>
+                </div>
                 <p><%= reminder.content %></p>
                 <p><%= reminder.due_date %></p>
-                  <div class="d-flex justify-content-evenly">
-                      <%= link_to "Edit", edit_reminder_path(reminder), class: "btn btn-secondary"%>
-                      <%= link_to reminder_path(reminder), data: {turbo_method: :delete, turbo_confirm: "Are you sure you want to DELETE you booking?"} do %>
-                        <i class="fa-solid fa-trash" data-action="click->reminder#showContent"></i>
-                      <% end %>
+                  <div class="template-icons reminder-icons m-2">
+                    <%= link_to edit_reminder_path(reminder) do %>
+                      <%= image_tag "pencil.png", class: "image-icon" %>
+                    <% end %>
+                    <%= link_to reminder_path(reminder), data: {turbo_method: :delete, turbo_confirm: "Are you sure you want to DELETE you template?"} do %>
+                      <i class="fa-solid fa-trash"></i>
+                    <% end %>
                   </div>
               </div>
             </div>
