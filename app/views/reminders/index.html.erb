@@ -19,7 +19,6 @@
                 <p><%= reminder.due_date %></p>
                   <div class="d-flex justify-content-evenly">
                       <%= link_to "Edit", edit_reminder_path(reminder), class: "btn btn-secondary"%>
-                      <%= button_to "Get notification", reminder_message_path(reminder), params: { id: reminder.id }, class: "btn btn-primary" %>
                       <%= link_to reminder_path(reminder), data: {turbo_method: :delete, turbo_confirm: "Are you sure you want to DELETE you booking?"} do %>
                         <i class="fa-solid fa-trash" data-action="click->reminder#showContent"></i>
                       <% end %>
