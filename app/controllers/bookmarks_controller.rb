@@ -36,7 +36,7 @@ class BookmarksController < ApplicationController
   def update
     authorize @bookmark
     if @bookmark.update(bookmark_params)
-      redirect_to bookmarks_path, notice: "Updated successfully"
+      redirect_to bookmarks_path(anchor: "bookmark_#{@bookmark.id}"), notice: "Updated successfully"
     else
       render :edit
     end

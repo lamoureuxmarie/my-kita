@@ -4,7 +4,7 @@
 
       <div data-controller="bookmark icon">
 
-        <div class="bookmark-card">
+        <div class="bookmark-card" id="<%= dom_id(bookmark) %>">
 
           <div class="d-flex delete justify-content-end">
             <%= link_to bookmark_path(bookmark), data: {turbo_method: :delete, turbo_confirm: "Are you sure you want to DELETE this task?"} do %>
@@ -69,18 +69,18 @@
                   <%= image_tag "pencil.png", class: "image-icon shadow-sm" %>
                   <h6 class="m-2 edit comment bm-link">Add a comment</h6>
                 </div>
-                  <p class="p-3 user-comment border"><%= bookmark.comment %></p>
+                  <p class="p-3 user-comment border" data-book><%= bookmark.comment %></p>
               </div>
               <div class="d-none comment" data-bookmark-comment-target="input">
                   <%= simple_form_for bookmark do |f| %>
-                    <%= f.input :comment, as: :text, class: 'content', data: { action: "submit->bookmark-comment#hideForm"} %>
-                    <%= f.submit "Edit Comment", class: 'btn btn-secondary mb-3 submit' %>
+                    <%= f.input :comment, as: :text, class: 'content', input_html: { data: { bookmark_comment_target: "text" } }%>
+                    <%= f.submit "Edit Comment", class: 'btn btn-secondary mb-3 submit', data: { turbo: false, action: "click->bookmark-comment#hideForm"} %>
                   <% end %>
               </div>
             </div>
             <div>
               <%= link_to reminders_path do %>
-                <div class="d-flex justify-content-start" data-action="click->bookmark-comment#showForm">
+                <div class="d-flex justify-content-start">
                   <%= image_tag "calendar.png", class: "image-icon shadow-sm" %>
                   <h6 class="m-2 edit comment bm-link">See Reminders</h6>
                 </div>
@@ -125,8 +125,8 @@
                             placeholder: "Find a task" %>
         <% end %>
       </div>
-      <div class="icon">
-        <i class="fa-solid fa-magnifying-glass" data-action="click->search-task#showSearch"></i>
+      <div class="icon" data-action="click->search-task#showSearch">
+        <%= image_tag "chercher.png", class: "search-icon shadow-sm" %>
       </div>
     </div>
 </div>
