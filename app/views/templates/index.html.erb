@@ -9,10 +9,10 @@
           <a href="mailto:<%= @kita_email %>?subject=<%= template.title %>&body=<%= template.content %>" target=“_blank” rel=“noopener” class="btn btn-primary">Send</a>
           <div class="template-icons m-2">
             <%= link_to edit_template_path(template) do %>
-              <i class="fa-solid fa-pen-to-square"></i>
+              <%= image_tag "pencil.png", class: "image-icon shadow-sm" %>
             <% end %>
             <%= link_to template_path(template), data: {turbo_method: :delete, turbo_confirm: "Are you sure you want to DELETE you template?"} do %>
-              <i class="fa-solid fa-trash"></i>
+              <i class="fa-solid fa-trash shadow-sm"></i>
             <% end %>
           </div>
         </div>

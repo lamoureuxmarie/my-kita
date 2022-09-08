@@ -1,13 +1,14 @@
 .template-icons .fa-trash {
-  font-size: 23px;
-  color:#01001A;
+  font-size: 16px;
+  color:#4743FF;
+  background-color: #DAD9FF;
+  padding: 10px;
+  border-radius: 10px;
   transition: all 0.25s ease-in;
-  padding-left: 15px;
+  margin-left: 20px;
+  margin-top: 5px;
 }
 
-.template-icons .fa-trash:hover {
-  font-size: 25px;
-}
 
 @media only screen and (min-width: 768px) {
   .temp-form {
