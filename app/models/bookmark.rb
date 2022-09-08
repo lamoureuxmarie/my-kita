@@ -1,7 +1,7 @@
 class Bookmark < ApplicationRecord
   belongs_to :kinder_garten
   belongs_to :user
-  has_many :reminders
+  has_many :reminders, dependent: :destroy
 
   enum :status, [:liked, :called, :schedulled, :emailed], default: :liked
 
