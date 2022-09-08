@@ -26,6 +26,7 @@
 .navbar-normal {
   justify-content: space-between;
   background-color: #FFFEFB;
+  height: 4.5rem;
 }
 
 .navbar-normal .navbar-collapse {
@@ -88,8 +89,8 @@
   display: block !important;
 }
 
-.fa-arrow-left {
-  font-size: 30px;
+.fa-angle-left {
+  font-size: 28px;
   color: #01001A;
   padding-right: 15px;
   padding-left: 10px;
@@ -98,7 +99,7 @@
   transition: all 0.25s ease-in;
 }
 
-.fa-arrow-left:hover {
+.fa-angle-left:hover {
   color: #02002b;
 }
 
