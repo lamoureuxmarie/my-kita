@@ -7,8 +7,12 @@
     <h1><%= @kinder_garten.name %></h1>
     <div class="descriptions">
       <p><%= @kinder_garten.address %></p>
-      <p><%= @kinder_garten.email %></p>
-      <p><%= @kinder_garten.phone_number %></p>
+      <div class="line-height">
+        <p><%= @kinder_garten.email %></p>
+      </div>
+      <div class="line-height">
+        <p><%= @kinder_garten.phone_number %></p>
+      </div>
     </div>
     <br>
     <div>
