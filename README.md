@@ -3,7 +3,7 @@
 My kita is a application designed to simplify the search of a kindergarten in Berlin, by helping parents be more organised and keeping track of their progress.
 </p>
 <p>
-This app was imagined by myself as part of my final project for Le Wagon Bootcamp. My two classmates, Missato and Daniel, built it with me.
+This app was imagined by Marie as part of our final project for Le Wagon Bootcamp - and built in collaboration with Missato and Daniel.
 </p>
 <p>
 The app includes: 
