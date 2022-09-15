@@ -1,7 +1,7 @@
 <div class="form-popup d-none" id="myForm" data-rating-target="form">
   <h2>Your rating</h2>
     <%= simple_form_for [kinder_garten, rating] do |f| %>
-      <%= f.input :rating, collection: (1..5).to_a, lable: "Rate your experience", class: "border" %>
+      <%= f.input :rating, collection: (1..5).to_a, lable: "Rate your experience", class: "border", input_html: {data: { controller="rating" } } %>
       <div class="d-flex justify-content-between">
         <%= f.submit "Send your review", class: "btn btn-primary" %>
         <button type="button" class="btn btn-secondary mb-4" data-action="click->rating#closeForm">Close rating</button>
