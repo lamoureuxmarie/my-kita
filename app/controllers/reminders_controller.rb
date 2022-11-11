@@ -36,7 +36,8 @@ class RemindersController < ApplicationController
 
   def message
     @reminder = Reminder.find(params[:id])
-    SendTelegramMessageJob.perform_later(current_user.chat_id, @reminder) if current_user.chat_id.present?
+    SendTelegramMessageJob.perform_now(current_user.chat_id, @reminder) if current_user.chat_id.present?
+    SendTelegramMessageJob.set(wait_until: @reminder.due_date - 86400).perform_later(current_user.chat_id, @reminder) if current_user.chat_id.present?
   end
 
   def edit
@@ -46,7 +47,8 @@ class RemindersController < ApplicationController
   def update
     authorize @reminder
     if @reminder.update(reminder_params)
-      SendTelegramMessageJob.perform_later(current_user.chat_id, @reminder) if current_user.chat_id.present?
+      SendTelegramMessageJob.perform_now(current_user.chat_id, @reminder) if current_user.chat_id.present?
+      SendTelegramMessageJob.set(wait_until: @reminder.due_date - 86400).perform_later(current_user.chat_id, @reminder) if current_user.chat_id.present?
       redirect_to bookmark_path(:bookmark_id), notice: "Updated successfully"
     else
       render :edit
