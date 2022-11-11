@@ -3,7 +3,7 @@
   border: 1px solid #FFE23F !important;
   color: #01001A !important;
   font-weight: 600;
-  font-size: 16px;
+  font-size: 14px;
   text-align: center;
   border-radius: 100px;
   width: 86%;
@@ -16,7 +16,7 @@
 }
 
 .kita-image {
-  height: 300px;
+  height: 250px;
   width: 100vw;
   object-fit: cover;
   margin-top: 58px;
@@ -50,4 +50,8 @@
   width: 85.6%;
   margin: 0 !important;
   text-align: center;
+}
+
+.kita-show-h1 {
+  font-size: 22px;
 }

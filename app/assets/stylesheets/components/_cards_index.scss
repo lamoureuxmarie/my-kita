@@ -6,8 +6,14 @@
 
 .index-card .card-img-top {
   border-radius: 10px 10px 0 0;
+  height: 8.5rem;
+  object-fit: cover;
 }
 
 .index-card p {
   opacity: .7;
+}
+
+.index-card h5 {
+  font-size: 1rem;
 }
