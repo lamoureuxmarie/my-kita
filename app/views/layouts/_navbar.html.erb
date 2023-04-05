@@ -1,6 +1,6 @@
 <% if controller_name == "pages" && action_name == "home" %>
 <%# Transparent navbar %>
-  <div class="navbar fixed-top navbar-light navbar-transparent shadow-sm">
+  <div class="navbar navbar-expand-md fixed-top navbar-light navbar-transparent shadow-sm">
     <div class="container-fluid">
       <%= link_to "/", class: "navbar-brand" do %>
         <img src="<%= asset_path 'logo-white.png' %>" alt="Logo">
@@ -10,7 +10,7 @@
   </div>
 <% else %>
   <%# normal navbar %>
-    <div class="navbar fixed-top navbar-light navbar-normal shadow-sm">
+    <div class="navbar navbar-expand-mdnavbar-expand-lg fixed-top navbar-light navbar-normal shadow-sm">
       <div class="container-fluid">
           <%= link_to :back, class: "back-link" do %>
             <i class="fa-solid fa-angle-left"></i>

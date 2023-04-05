@@ -2,7 +2,6 @@
 
 .navbar-transparent {
   justify-content: space-between;
-  background-color: transparent;
 }
 
 .navbar-transparent .navbar-collapse {
@@ -48,6 +47,8 @@
 
 .navbar-toggler {
   border: none;
+  background-color: #fffefb25;
+  border-radius: 5px;
 }
 
 .me-auto {
@@ -106,4 +107,26 @@
 .navbar-collapse {
   border: solid 1px rgb(235, 235, 235);
 
+}
+
+/* Navbar full-width on medium and bigger screens */
+@media (min-width: 768px) {
+  .navbar-expand-md .menudiv {
+    position: absolute;
+    top: 0;
+    border-radius: 0;
+    background-color: transparent;
+    border: none;
+  }
+
+  .navbar-expand-md .menudiv .navbar-nav {
+    display: flex;
+    width: 100%;
+    justify-content: end;
+    padding-right: 20px;
+  }
+
+  .navbar-expand-md .menudiv .navbar-nav .nav-link {
+    color: #FFFEFB;
+  }
 }
